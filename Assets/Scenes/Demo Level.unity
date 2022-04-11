@@ -89022,6 +89022,8 @@ GameObject:
   - component: {fileID: 645746144}
   - component: {fileID: 645746142}
   - component: {fileID: 645746141}
+  - component: {fileID: 645746143}
+  - component: {fileID: 645746147}
   m_Layer: 0
   m_Name: Shooter
   m_TagString: Shooter Left
@@ -89094,6 +89096,25 @@ MonoBehaviour:
   Shot: {fileID: 840836303}
   Speed: 0.3
   NextShot: 0
+--- !u!95 &645746143
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645746140}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e210f96a650614415887959963840da5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &645746144
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -89140,7 +89161,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!4 &645746146
 Transform:
   m_ObjectHideFlags: 0
@@ -89149,13 +89170,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645746140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 116.47, y: 10.66, z: 0}
+  m_LocalPosition: {x: 116.47, y: 11.21, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 840836307}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &645746147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645746140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1557a4c4ae9544d6e919cb4826bc8c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.3
 --- !u!1 &723705923
 GameObject:
   m_ObjectHideFlags: 0
@@ -89394,6 +89429,7 @@ GameObject:
   - component: {fileID: 840836306}
   - component: {fileID: 840836305}
   - component: {fileID: 840836304}
+  - component: {fileID: 840836308}
   m_Layer: 0
   m_Name: Shot
   m_TagString: Spike
@@ -89502,6 +89538,25 @@ Transform:
   m_Father: {fileID: 645746146}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &840836308
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840836303}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 411483a9cb5a84f29952e0a205b2bbfa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &889747371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89624,6 +89679,8 @@ GameObject:
   - component: {fileID: 970824504}
   - component: {fileID: 970824502}
   - component: {fileID: 970824501}
+  - component: {fileID: 970824503}
+  - component: {fileID: 970824507}
   m_Layer: 0
   m_Name: Shooter (1)
   m_TagString: Shooter Left
@@ -89696,6 +89753,25 @@ MonoBehaviour:
   Shot: {fileID: 1294080523}
   Speed: 0.3
   NextShot: 0
+--- !u!95 &970824503
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970824500}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e210f96a650614415887959963840da5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &970824504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -89742,7 +89818,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!4 &970824506
 Transform:
   m_ObjectHideFlags: 0
@@ -89751,13 +89827,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970824500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 131.87, y: 5.65, z: 0}
+  m_LocalPosition: {x: 131.87, y: 6.08, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 1294080527}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &970824507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970824500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1557a4c4ae9544d6e919cb4826bc8c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  height: 0.3
 --- !u!1 &1018165847
 GameObject:
   m_ObjectHideFlags: 0
@@ -90551,6 +90641,7 @@ GameObject:
   - component: {fileID: 1294080526}
   - component: {fileID: 1294080525}
   - component: {fileID: 1294080524}
+  - component: {fileID: 1294080528}
   m_Layer: 0
   m_Name: Shot
   m_TagString: Spike
@@ -90659,6 +90750,25 @@ Transform:
   m_Father: {fileID: 970824506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1294080528
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294080523}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 411483a9cb5a84f29952e0a205b2bbfa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1306811865
 GameObject:
   m_ObjectHideFlags: 0
