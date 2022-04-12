@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer SR;
     private BoxCollider2D BC;
     private float NextAttack;
+
+    public Animator enemyAnim;
     
 
 
@@ -17,6 +19,8 @@ public class Enemy : MonoBehaviour
     {
         SR = Attack.GetComponent<SpriteRenderer>();
         BC = Attack.GetComponent<BoxCollider2D>();
+
+        enemyAnim = GetComponent<Animator>();
 
     }
 
@@ -28,6 +32,9 @@ public class Enemy : MonoBehaviour
             SR.enabled = true;
             BC.enabled = true;
             NextAttack = Time.time + Random.Range(2, 6);
+
+            enemyAnim.SetBool("isAttacking", true);
+
             StartCoroutine(AttackCo());
 
 
@@ -56,9 +63,11 @@ public class Enemy : MonoBehaviour
 
     IEnumerator AttackCo()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
         SR.enabled = false;
         BC.enabled = false;
+
+        enemyAnim.SetBool("isAttacking", false);
     }
 
-    }
+}

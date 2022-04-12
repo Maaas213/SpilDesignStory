@@ -10,6 +10,7 @@ public class MoveBallBackAndForth : MonoBehaviour
     //public MoveBallBackAndForth MBBAFScript;
 
     private Animator enemyAnim;
+    private SpriteRenderer SR;
 
     Vector3 nextPos;
 
@@ -19,6 +20,7 @@ public class MoveBallBackAndForth : MonoBehaviour
         nextPos = startPos.position;
 
         enemyAnim = GetComponent<Animator>();
+        SR = GetComponent<SpriteRenderer>();
 
         //if (gameObject.CompareTag("Mover"))
         {
@@ -35,10 +37,12 @@ public class MoveBallBackAndForth : MonoBehaviour
         if (transform.position == pos1.position)
         {
             nextPos = pos2.position;
+            SR.flipX = false;
         }
         if (transform.position == pos2.position)
         {
             nextPos = pos1.position;
+            SR.flipX = true;
         }
         transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
 

@@ -326,6 +326,8 @@ public class BattleScript : MonoBehaviour
                 HP = HP - 1;
                 Invul = true;
 
+                anim.SetBool("takingDamage", true);
+
                 StartCoroutine(InvulCo());
                 
             }
@@ -346,6 +348,8 @@ public class BattleScript : MonoBehaviour
 
     IEnumerator InvulCo()
     {
+        yield return new WaitForSeconds(0.5f);
+        anim.SetBool("takingDamage", false);
         yield return new WaitForSeconds(1);
         Invul = false;
         
