@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Fungus;
 
 public class BattleScript : MonoBehaviour
@@ -16,6 +17,10 @@ public class BattleScript : MonoBehaviour
     //public float NextShield;
     //public float NextFireball;
     public float HP;
+    public int numOfHearts;
+    public Image[] hearts;
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
 
     private Rigidbody2D RB;
 
@@ -293,6 +298,33 @@ public class BattleScript : MonoBehaviour
         {
             SceneManager.LoadScene("Demo Level");
         }
+
+        if (HP > numOfHearts)
+        {
+            HP = numOfHearts;
+        }
+
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < HP)
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
+
+
+            if (i < numOfHearts)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
     }
     private void FixedUpdate()
     {
@@ -335,6 +367,9 @@ public class BattleScript : MonoBehaviour
             {
                 HP = HP - 1;
                 Invul = true;
+
+                anim.SetBool("takingDamage", true);
+
                 StartCoroutine(InvulCo());
             }
         }
