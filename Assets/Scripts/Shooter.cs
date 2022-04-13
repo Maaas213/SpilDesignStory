@@ -46,6 +46,8 @@ public class Shooter : MonoBehaviour
         {
             Shot.transform.position = OriPos;
             NextShot = Time.time + 2;
+            SSR.enabled = true;
+            SCC.enabled = true;
         }
     }
     private void OnCollisionEnter2D(Collision2D other)

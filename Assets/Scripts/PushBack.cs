@@ -42,7 +42,7 @@ public class PushBack : MonoBehaviour
 
         if (Invul == false)
         {
-            if (other.gameObject.CompareTag("Enemy"))
+            if (other.gameObject.CompareTag("Enemy") || (other.gameObject.CompareTag("Spike")))
             {
 
                 BS.enabled = false;
