@@ -9107,7 +9107,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &159434292
 GameObject:
@@ -9216,7 +9216,7 @@ Transform:
   m_LocalScale: {x: 300, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &172297442
 GameObject:
@@ -89249,7 +89249,7 @@ Transform:
   m_Children:
   - {fileID: 840836307}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &645746147
 MonoBehaviour:
@@ -89802,7 +89802,7 @@ PrefabInstance:
     - target: {fileID: 8896308814386970943, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8896308814386970943, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
         type: 3}
@@ -90195,7 +90195,7 @@ Transform:
   m_Children:
   - {fileID: 1294080527}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &970824507
 MonoBehaviour:
@@ -90241,40 +90241,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Theme
+    clip: {fileID: 8300000, guid: 79ebe61afa8eeda409ab5b14a588e4db, type: 3}
+    volume: 0.739
+    pitch: 1.08
+    loop: 1
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Ambience1
+    clip: {fileID: 8300000, guid: 6d93f125cf9c44849af6d12ea1742c7a, type: 3}
+    volume: 1
+    pitch: 1.11
+    loop: 1
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 942a720d68e1f6d45bea4dd23d6785de, type: 3}
+    volume: 0.18
+    pitch: 1.27
     loop: 0
     hasCooldown: 0
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Sword
+    clip: {fileID: 8300000, guid: 589947743f0128b41bb43494f6bbc62b, type: 3}
+    volume: 0.502
+    pitch: 1.19
     loop: 0
     hasCooldown: 0
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    hasCooldown: 0
+  - name: Steps1
+    clip: {fileID: 8300000, guid: cad8e14f14176f741a0b0876c7466f3d, type: 3}
+    volume: 0.605
+    pitch: 1.4
+    loop: 1
+    hasCooldown: 1
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    hasCooldown: 0
+  - name: Steps2
+    clip: {fileID: 8300000, guid: 8adcf6f5b7774094abeed4d6460639f1, type: 3}
+    volume: 0.605
+    pitch: 1.4
+    loop: 1
+    hasCooldown: 1
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    hasCooldown: 0
+  - name: Steps1
+    clip: {fileID: 8300000, guid: cad8e14f14176f741a0b0876c7466f3d, type: 3}
+    volume: 1
+    pitch: 1.4
+    loop: 1
+    hasCooldown: 1
     source: {fileID: 0}
 --- !u!4 &1018165849
 Transform:
@@ -90513,6 +90527,7 @@ GameObject:
   - component: {fileID: 1133152000}
   - component: {fileID: 1133151998}
   - component: {fileID: 1133152004}
+  - component: {fileID: 1133152005}
   - component: {fileID: 1133151999}
   m_Layer: 6
   m_Name: Player (1)
@@ -90615,6 +90630,10 @@ MonoBehaviour:
   BackTankAttack: {fileID: 1061891810}
   Feet: {fileID: 1188267640}
   anim: {fileID: 1133152004}
+  interactionskeys: 7a000000
+  flowchart: {fileID: 1675781301}
+  inDialog: 0
+  currentInteractive: {fileID: 0}
 --- !u!70 &1133152001
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -90670,7 +90689,7 @@ Transform:
   - {fileID: 1061891814}
   - {fileID: 1188267643}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1133152004
 Animator:
@@ -90691,6 +90710,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1133152005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133151997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6a361cc3edcc04cb8a8fbf56b8fac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPlaying: 0
+  OnGround: 1
 --- !u!1 &1188267640
 GameObject:
   m_ObjectHideFlags: 0
@@ -90903,7 +90936,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1221360782 stripped
 GameObject:
@@ -90945,7 +90978,7 @@ PrefabInstance:
     - target: {fileID: 1288395945509764054, guid: 70a34928c9a3d85478c3a12ca17cb154,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1288395945509764054, guid: 70a34928c9a3d85478c3a12ca17cb154,
         type: 3}
@@ -90996,6 +91029,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888339090212021553, guid: 70a34928c9a3d85478c3a12ca17cb154,
+        type: 3}
+      propertyPath: blockName
+      value: Graham
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70a34928c9a3d85478c3a12ca17cb154, type: 3}
@@ -91722,7 +91760,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1430113185
 GameObject:
@@ -92007,7 +92045,7 @@ Transform:
   - {fileID: 1676533679}
   - {fileID: 1882094614}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1506844418
 GameObject:
@@ -92177,7 +92215,7 @@ PrefabInstance:
     - target: {fileID: 8896308814386970943, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8896308814386970943, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
         type: 3}
@@ -92399,7 +92437,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1675781300
 GameObject:
@@ -92449,8 +92487,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1675781305}
-  selectedCommands:
-  - {fileID: 1675781302}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -92556,8 +92593,8 @@ MonoBehaviour:
     y: 70
     width: 94.8
     height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
+  tint: {r: 0.3972117, g: 0.7830189, b: 0.29178533, a: 1}
+  useCustomTint: 1
   itemId: 0
   blockName: Graham
   description: "Her er hvor Grahams og Leias samtale skal v\xE6re"
@@ -93390,7 +93427,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959476559
 GameObject:
@@ -93434,7 +93471,7 @@ Transform:
   - {fileID: 2057000945}
   - {fileID: 749176032}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2054804358
 GameObject:

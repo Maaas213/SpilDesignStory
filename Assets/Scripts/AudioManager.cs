@@ -50,12 +50,15 @@ public class AudioManager : MonoBehaviour
                 Debug.Log(s.name);
                 soundTimerDictionary[s.name] = 0f;
             }
+
+           
         }
     }
 
     private void Start()
     {
-        
+        FindObjectOfType<AudioManager>().Play("Theme");
+        FindObjectOfType<AudioManager>().Play("Ambience1");
     }
 
     public void Play(string name)
