@@ -82,6 +82,8 @@ public class BattleScript : MonoBehaviour
     public bool inDialog;
     public Interactive currentInteractive;
 
+    public ParticleSystem dust;
+
     //public bool soundPlaying;
 
     void Start()
@@ -158,7 +160,11 @@ public class BattleScript : MonoBehaviour
             float moveHorizontal = Input.GetAxis("Horizontal");
 
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
-
+            
+            if ((Input.GetKey("a") || Input.GetKey("d")) && OnGround == true)
+            {
+                CreateDust();
+            }
 
             //RB.AddForce(movement * Speed, ForceMode2D.Impulse);
             transform.Translate(movement * Speed);
@@ -176,6 +182,7 @@ public class BattleScript : MonoBehaviour
                     FindObjectOfType<AudioManager>().Play("Jump");
                     OnGround = false;
                     anim.SetBool("isJumping", true);
+                    CreateDust();
 
                     //StartCoroutine(DoubleJumpCoRoutine());
 
@@ -558,5 +565,10 @@ public class BattleScript : MonoBehaviour
     public void ExitBlock()
     {
         inDialog = false;
+    }
+
+    void CreateDust()
+    {
+        dust.Play();
     }
 }

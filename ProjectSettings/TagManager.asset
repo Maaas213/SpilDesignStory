@@ -20,6 +20,11 @@ TagManager:
   - Death
   - FireBall
   - Mana
+  - Laser
+  - Goal
+  - Mover
+  - Goal2
+  - Boss
   layers:
   - Default
   - TransparentFX
