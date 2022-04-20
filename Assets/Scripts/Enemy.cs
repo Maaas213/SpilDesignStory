@@ -11,7 +11,8 @@ public class Enemy : MonoBehaviour
     private float NextAttack;
 
     public Animator enemyAnim;
-    
+
+    public ParticleSystem blood;
 
 
     // Start is called before the first frame update
@@ -47,7 +48,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Melee"))
         {
-            Destroy(gameObject);
+            StartCoroutine(BloodAct());
+            
         }
         if (other.gameObject.CompareTag("Lightning"))
         {
@@ -72,6 +74,20 @@ public class Enemy : MonoBehaviour
         BC.enabled = false;
 
         enemyAnim.SetBool("isAttacking", false);
+    }
+
+    IEnumerator BloodAct()
+    {
+        
+        BloodSpray();
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+
+    }
+
+    void BloodSpray()
+    {
+        blood.Play();
     }
 
 }
