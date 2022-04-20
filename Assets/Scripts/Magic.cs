@@ -21,6 +21,7 @@ public class Magic : MonoBehaviour
     public bool BackFireing;
     private bool TurnRight;
     private bool TurnLeft;
+    private bool NoMana;
 
 
     private Vector3 PlayerPos;
@@ -118,7 +119,7 @@ public class Magic : MonoBehaviour
 
     IEnumerator FireingCo()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         Fireing = false;
         SR.enabled = false;
         CC.enabled = false;
@@ -126,7 +127,7 @@ public class Magic : MonoBehaviour
 
     IEnumerator BackFireingCo()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         BackFireing = false;
         BSR.enabled = false;
         BCC.enabled = false;
@@ -136,10 +137,23 @@ public class Magic : MonoBehaviour
     {
         if (MP < 9)
         {
-            if (other.gameObject.CompareTag("Mana"))
+            if (NoMana == false)
             {
-                MP = MP + 1;
+                if (other.gameObject.CompareTag("Mana"))
+                {
+                    MP = MP + 1;
+                    StartCoroutine(NoManaCo());
+                    NoMana = true;
+                }
             }
         }
+
     }
+
+    IEnumerator NoManaCo()
+    {
+        yield return new WaitForSeconds(0.2f);
+        NoMana = false;
+    }
+
 }

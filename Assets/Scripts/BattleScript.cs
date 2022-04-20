@@ -431,7 +431,7 @@ public class BattleScript : MonoBehaviour
 
         if (other.gameObject.CompareTag("Death"))
         {
-            SceneManager.LoadScene("Demo Level");
+            HP = 0;
         }
     }
 
