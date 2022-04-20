@@ -74,6 +74,7 @@ public class Magic : MonoBehaviour
                         NextFireBall = Time.time + 2;
                         StartCoroutine(FireingCo());
                         MP = MP - 3;
+                        FindObjectOfType<AudioManager>().Play("Fireball");
                     }
                 }
 
@@ -87,6 +88,7 @@ public class Magic : MonoBehaviour
                         NextFireBall = Time.time + 2;
                         StartCoroutine(BackFireingCo());
                         MP = MP - 3;
+                        FindObjectOfType<AudioManager>().Play("Fireball");
                     }
 
                 }

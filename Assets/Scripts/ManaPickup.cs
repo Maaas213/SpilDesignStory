@@ -22,6 +22,7 @@ public class ManaPickup : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
+            FindObjectOfType<AudioManager>().Play("Mana");
         }
     }
 }

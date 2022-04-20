@@ -280,6 +280,7 @@ public class BattleScript : MonoBehaviour
 
                         NextTankAttack = Time.time + 5;
                         StartCoroutine(TankAttackCoRoutine());
+                        FindObjectOfType<AudioManager>().Play("Ax");
 
                     }
                 }

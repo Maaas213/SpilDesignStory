@@ -49,10 +49,12 @@ public class PushBack : MonoBehaviour
                 if (TurnRight == true)
                 {
                     PRB.AddForce(PushBack * PushForce, ForceMode2D.Impulse);
+                    FindObjectOfType<AudioManager>().Play("Push");
                 }
                 if(TurnLeft == true)
                 {
                     PRB.AddForce(PushBack2 * PushForce, ForceMode2D.Impulse);
+                    FindObjectOfType<AudioManager>().Play("Push");
                 }
 
                 StartCoroutine(PushCo());

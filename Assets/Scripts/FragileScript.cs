@@ -36,6 +36,7 @@ public class FragileScript : MonoBehaviour
 
     private IEnumerator Breaking ()
     {
+        FindObjectOfType<AudioManager>().Play("Crack");
         yield return new WaitForSeconds(0.3f);
         BC.enabled = false;
         SR.enabled = false;

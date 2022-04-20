@@ -91051,24 +91051,52 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Steps1
     clip: {fileID: 8300000, guid: cad8e14f14176f741a0b0876c7466f3d, type: 3}
-    volume: 0.605
+    volume: 0.393
     pitch: 1.4
     loop: 1
     hasCooldown: 1
     source: {fileID: 0}
   - name: Steps2
     clip: {fileID: 8300000, guid: 8adcf6f5b7774094abeed4d6460639f1, type: 3}
-    volume: 0.605
+    volume: 0.393
     pitch: 1.4
     loop: 1
     hasCooldown: 1
     source: {fileID: 0}
-  - name: Steps1
-    clip: {fileID: 8300000, guid: cad8e14f14176f741a0b0876c7466f3d, type: 3}
+  - name: Ax
+    clip: {fileID: 8300000, guid: 360e8ffc5d7fc094e822f1d80694d70c, type: 3}
     volume: 1
     pitch: 1.4
-    loop: 1
-    hasCooldown: 1
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Mana
+    clip: {fileID: 8300000, guid: 2d6a6e881bd4cb4419723e6900059d52, type: 3}
+    volume: 1
+    pitch: 1.4
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Fireball
+    clip: {fileID: 8300000, guid: 57a6e9dbb46be944b9d04ad00d9d8362, type: 3}
+    volume: 1
+    pitch: 1.4
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Crack
+    clip: {fileID: 8300000, guid: 4c60b0cedf26c9d4890dab45f391fd57, type: 3}
+    volume: 1
+    pitch: 1.4
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Push
+    clip: {fileID: 8300000, guid: 36fdf65999161c74eaa429cf23ec0901, type: 3}
+    volume: 0.173
+    pitch: 1.4
+    loop: 0
+    hasCooldown: 0
     source: {fileID: 0}
 --- !u!4 &1018165849
 Transform:
