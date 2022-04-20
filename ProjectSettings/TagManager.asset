@@ -18,6 +18,8 @@ TagManager:
   - Enemy2
   - Goal1
   - Death
+  - FireBall
+  - Mana
   layers:
   - Default
   - TransparentFX

@@ -46,9 +46,12 @@ public class BattleScript : MonoBehaviour
     //private BoxCollider2D LBC;
     private SpriteRenderer TASR;
     private CapsuleCollider2D TACC;
-    //private SpriteRenderer FBSR;
-    //private CircleCollider2D FBCC;
+    private SpriteRenderer FBSR;
+    private CircleCollider2D FBCC;
+    private Rigidbody2D FBRB;
     private BoxCollider2D FBC;
+    private Transform FBT;
+
 
     private SpriteRenderer BMSR;
     private BoxCollider2D BMBC;
@@ -56,8 +59,13 @@ public class BattleScript : MonoBehaviour
     //private BoxCollider2D BLBC;
     private SpriteRenderer BTASR;
     private CapsuleCollider2D BTACC;
-    //private SpriteRenderer BFBSR;
-    //private CircleCollider2D BFBCC;
+    private SpriteRenderer BFBSR;
+    private CircleCollider2D BFBCC;
+    private Rigidbody2D BFBRB;
+    private Transform BFBT;
+
+    private Vector3 OriPos1;
+    private Vector3 OriPos2;
 
     private bool TurnRight;
     private bool TurnLeft;
@@ -96,6 +104,12 @@ public class BattleScript : MonoBehaviour
         //BFBSR = BackFireball.GetComponent<SpriteRenderer>();
         //BFBCC = BackFireball.GetComponent<CircleCollider2D>();
         FBC = Feet.GetComponent<BoxCollider2D>();
+        //FBT = Fireball.GetComponent<Transform>();
+        //BFBT = BackFireball.GetComponent<Transform>();
+        //FBRB = Fireball.GetComponent<Rigidbody2D>();
+        //BFBRB = BackFireball.GetComponent<Rigidbody2D>();
+
+
 
         SR = GetComponent<SpriteRenderer>();
         CC = GetComponent<CapsuleCollider2D>();
@@ -127,6 +141,10 @@ public class BattleScript : MonoBehaviour
         backMeleeAnim = BackMelee.GetComponent<Animator>();
         tankAttackAnim = TankAttack.GetComponent<Animator>();
         backTankAttackAnim = BackTankAttack.GetComponent<Animator>();
+
+   
+        //OriPos1 = new Vector3(Fireball.transform.position.x, Fireball.transform.position.y, Fireball.transform.position.z);
+        //OriPos2 = new Vector3(BackFireball.transform.position.x, BackFireball.transform.position.y, BackFireball.transform.position.z);
     }
 
     // Update is called once per frame
@@ -140,8 +158,7 @@ public class BattleScript : MonoBehaviour
             float moveHorizontal = Input.GetAxis("Horizontal");
 
             Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
-            Vector3 FireballShot = new Vector3(1.0f, 0.0f, 0.0f);
-            Vector3 BackFireballShot = new Vector3(-1.0f, 0.0f, 0.0f);
+
 
             //RB.AddForce(movement * Speed, ForceMode2D.Impulse);
             transform.Translate(movement * Speed);
@@ -241,15 +258,12 @@ public class BattleScript : MonoBehaviour
                 {
                     TurnRight = true;
                     TurnLeft = false;
-
                 }
                 
                 if (Input.GetKeyDown("a"))
                 {
                     TurnLeft = true;
                     TurnRight = false;
-
-                   
                 }
             }
 
@@ -293,23 +307,27 @@ public class BattleScript : MonoBehaviour
                     {
                         if (TurnRight == true)
                         {
-                            //Fireball.transform.Translate(FireballShot * FireballSpeed);
+                            Vector3 FireballShot = new Vector3(1.0f, 0.0f, 0.0f);
+                            Fireball.transform.Translate(FireballShot * FireballSpeed);
                             FBSR.enabled = true;
                             FBCC.enabled = true;
                             StartCoroutine(FireBallCoRoutine());
-                            NextFireball = Time.time + 5;
+                            NextFireball = Time.time + 3;
                         }
                         if (TurnLeft == true)
                         {
-                            //BackFireball.transform.Translate(BackFireballShot * FireballSpeed);
+                            Vector3 BackFireballShot = new Vector3(-1.0f, 0.0f, 0.0f);
+                            BackFireball.transform.Translate(BackFireballShot * FireballSpeed);
                             BFBCC.enabled = true;
                             BFBSR.enabled = true;
                             StartCoroutine(BackFireballCoRoutine());
-                            NextFireball = Time.time + 5;
+                            NextFireball = Time.time + 3;
                         }
                     }
+                }
             }
-                */
+            */
+                
 
             if (TurnRight == true)
             {
@@ -483,14 +501,15 @@ public class BattleScript : MonoBehaviour
       yield return new WaitForSeconds(3f);
         FBCC.enabled = false;
         FBSR.enabled = false;
-
+        Fireball.transform.position = OriPos1;
     }
-
+    
     IEnumerator BackFireballCoRoutine ()
     {
        yield return new WaitForSeconds(3f);
         BFBSR.enabled = false;
         BFBCC.enabled = false;
+        BackFireball.transform.position = OriPos2;
     }
     */
 

@@ -64,6 +64,10 @@ public class Shooter : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (other.gameObject.CompareTag("FireBall"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
