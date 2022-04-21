@@ -7,6 +7,8 @@ public class Destrcuable : MonoBehaviour
 
     private SpriteRenderer SR;
     private BoxCollider2D BC;
+
+    public ParticleSystem rock;
     
     void Start()
     {
@@ -30,7 +32,19 @@ public class Destrcuable : MonoBehaviour
 
         if (other.gameObject.CompareTag("TankAttack"))
         {
-            Destroy(gameObject);
+            StartCoroutine(RockSmash());
         }
+    }
+
+    IEnumerator RockSmash()
+    {
+        RockPar();
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+    }
+
+    void RockPar()
+    {
+        rock.Play();
     }
 }
