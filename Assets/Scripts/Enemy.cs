@@ -8,11 +8,14 @@ public class Enemy : MonoBehaviour
     public GameObject Attack;
     private SpriteRenderer SR;
     private BoxCollider2D BC;
+    private CapsuleCollider2D CC;
     private float NextAttack;
 
     public Animator enemyAnim;
 
     public ParticleSystem blood;
+
+    public MoveBallBackAndForth Movement;
 
 
     // Start is called before the first frame update
@@ -20,6 +23,8 @@ public class Enemy : MonoBehaviour
     {
         SR = Attack.GetComponent<SpriteRenderer>();
         BC = Attack.GetComponent<BoxCollider2D>();
+
+        CC = GetComponent<CapsuleCollider2D>();
 
         enemyAnim = GetComponent<Animator>();
 
@@ -48,8 +53,9 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Melee"))
         {
-            StartCoroutine(BloodAct());
-            
+            CC.enabled = false;
+            Movement.enabled = false;
+            StartCoroutine(BloodAct()); 
         }
         if (other.gameObject.CompareTag("Lightning"))
         {

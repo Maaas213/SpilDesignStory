@@ -46,7 +46,7 @@ public class Magic : MonoBehaviour
         BSR.enabled = false;
         BCC.enabled = false;
 
-        MP = 3;
+       
 
     }
 
