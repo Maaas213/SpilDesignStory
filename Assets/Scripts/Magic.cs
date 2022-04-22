@@ -133,7 +133,7 @@ public class Magic : MonoBehaviour
         BCC.enabled = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (MP < 9)
         {
@@ -147,8 +147,12 @@ public class Magic : MonoBehaviour
                 }
             }
         }
-
     }
+
+
+    
+    
+
 
     IEnumerator NoManaCo()
     {

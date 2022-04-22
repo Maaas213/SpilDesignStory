@@ -17,9 +17,9 @@ public class ManaPickup : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
             FindObjectOfType<AudioManager>().Play("Mana");
@@ -30,4 +30,7 @@ public class ManaPickup : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Mana");
         }
     }
+
+
+
 }
