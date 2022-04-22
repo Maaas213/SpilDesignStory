@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Magic : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class Magic : MonoBehaviour
     public float FireBallSpeed;
     private float NextFireBall;
     public float MP;
+    /*public int numOfMana;
+    public Image[] mana;
+    public Sprite fullMana;
+    public Sprite emptyMana;*/
 
     private SpriteRenderer SR;
     private SpriteRenderer BSR;
@@ -41,6 +46,8 @@ public class Magic : MonoBehaviour
         BSR.enabled = false;
         BCC.enabled = false;
 
+        MP = 3;
+
     }
 
     // Update is called once per frame
@@ -61,103 +68,131 @@ public class Magic : MonoBehaviour
         PlayerPos = new Vector3(Player.transform.position.x + 1, Player.transform.position.y, Player.transform.position.z);
         BackPlayerPos = new Vector3(Player.transform.position.x - 1, Player.transform.position.y, Player.transform.position.z);
 
-        if(MP >= 3)
+        /*if (MP > numOfMana)
         {
-            if (Time.time > NextFireBall)
-            {
-                if (TurnRight == true)
-                {
-                    if (Input.GetKeyDown("f"))
-                    {
-                        FireBall.transform.position = PlayerPos;
-                        Fireing = true;
-                        BackFireing = false;
-                        NextFireBall = Time.time + 2;
-                        StartCoroutine(FireingCo());
-                        MP = MP - 3;
-                        FindObjectOfType<AudioManager>().Play("Fireball");
-                    }
-                }
+            MP = numOfMana;
+        }
 
-                if (TurnLeft == true)
+        for (int i = 0; i < mana.Length; i++)
+        {
+            if (i < MP)
+            {
+                mana[i].sprite = fullMana;
+            }
+            else
+            {
+                mana[i].sprite = emptyMana;
+            }
+
+
+            if (i < numOfMana)
+            {
+                mana[i].enabled = true;
+            }
+            else
+            {
+                mana[i].enabled = false;
+            }*/
+
+
+            if (MP >= 3)
+            {
+                if (Time.time > NextFireBall)
                 {
-                    if (Input.GetKeyDown("f"))
+                    if (TurnRight == true)
                     {
-                        BackFireBall.transform.position = BackPlayerPos;
-                        BackFireing = true;
-                        Fireing = false;
-                        NextFireBall = Time.time + 2;
-                        StartCoroutine(BackFireingCo());
-                        MP = MP - 3;
-                        FindObjectOfType<AudioManager>().Play("Fireball");
+                        if (Input.GetKeyDown("f"))
+                        {
+                            FireBall.transform.position = PlayerPos;
+                            Fireing = true;
+                            BackFireing = false;
+                            NextFireBall = Time.time + 2;
+                            StartCoroutine(FireingCo());
+                            MP = MP - 3;
+                            FindObjectOfType<AudioManager>().Play("Fireball");
+                        }
+                    }
+
+                    if (TurnLeft == true)
+                    {
+                        if (Input.GetKeyDown("f"))
+                        {
+                            BackFireBall.transform.position = BackPlayerPos;
+                            BackFireing = true;
+                            Fireing = false;
+                            NextFireBall = Time.time + 2;
+                            StartCoroutine(BackFireingCo());
+                            MP = MP - 3;
+                            FindObjectOfType<AudioManager>().Play("Fireball");
+                        }
+
                     }
 
                 }
 
             }
 
-        }
+            Vector3 Fire = new Vector3(0.1f, 0.0f, 0.0f);
+            Vector3 BackFire = new Vector3(-0.1f, 0.0f, 0.0f);
 
-        Vector3 Fire = new Vector3(0.1f, 0.0f, 0.0f);
-        Vector3 BackFire = new Vector3(-0.1f, 0.0f, 0.0f);
-
-        if (Fireing == true)
-        {
-            FireBall.transform.Translate(Fire * FireBallSpeed);
-            SR.enabled = true;
-            CC.enabled = true;
-        }
-
-        if(BackFireing == true)
-        {
-            BackFireBall.transform.Translate(BackFire * FireBallSpeed);
-            BSR.enabled = true;
-            BCC.enabled = true;
-        }
-
-    }
-
-    IEnumerator FireingCo()
-    {
-        yield return new WaitForSeconds(1.5f);
-        Fireing = false;
-        SR.enabled = false;
-        CC.enabled = false;
-    }
-
-    IEnumerator BackFireingCo()
-    {
-        yield return new WaitForSeconds(1.5f);
-        BackFireing = false;
-        BSR.enabled = false;
-        BCC.enabled = false;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (MP < 9)
-        {
-            if (NoMana == false)
+            if (Fireing == true)
             {
-                if (other.gameObject.CompareTag("Mana"))
+                FireBall.transform.Translate(Fire * FireBallSpeed);
+                SR.enabled = true;
+                CC.enabled = true;
+            }
+
+            if (BackFireing == true)
+            {
+                BackFireBall.transform.Translate(BackFire * FireBallSpeed);
+                BSR.enabled = true;
+                BCC.enabled = true;
+            }
+
+        }
+
+        IEnumerator FireingCo()
+        {
+            yield return new WaitForSeconds(1.5f);
+            Fireing = false;
+            SR.enabled = false;
+            CC.enabled = false;
+        }
+
+        IEnumerator BackFireingCo()
+        {
+            yield return new WaitForSeconds(1.5f);
+            BackFireing = false;
+            BSR.enabled = false;
+            BCC.enabled = false;
+        }
+
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (MP < 3)
+            {
+                if (NoMana == false)
                 {
-                    MP = MP + 1;
-                    StartCoroutine(NoManaCo());
-                    NoMana = true;
+                    if (other.gameObject.CompareTag("Mana"))
+                    {
+                        MP = MP + 1;
+                        StartCoroutine(NoManaCo());
+                        NoMana = true;
+                    }
                 }
             }
         }
-    }
 
 
-    
-    
 
 
-    IEnumerator NoManaCo()
-    {
-        yield return new WaitForSeconds(0.2f);
-        NoMana = false;
-    }
+
+
+        IEnumerator NoManaCo()
+        {
+            yield return new WaitForSeconds(0.2f);
+            NoMana = false;
+        }
+    //}
 
 }
