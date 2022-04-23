@@ -105786,6 +105786,11 @@ PrefabInstance:
       objectReference: {fileID: 1436753763}
     - target: {fileID: 8712562514516462360, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
         type: 3}
+      propertyPath: Movement
+      value: 
+      objectReference: {fileID: 1221360785}
+    - target: {fileID: 8712562514516462360, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
+        type: 3}
       propertyPath: enemyAnim
       value: 
       objectReference: {fileID: 1221360788}
@@ -106632,7 +106637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ebfad84b6c6d34ab0cac0f71a836fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.05
+  Speed: 0.06
   JumpForce: 1800
   NextMelee: 0
   HP: 3
@@ -111822,6 +111827,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 889747371}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1221360785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3803120782635321387, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 889747371}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221360782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87b08724c8021f4abf927e533228787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1221360788
 Animator:
   serializedVersion: 3
@@ -112305,6 +112322,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1582859425}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1344593259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3803120782635321387, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1582859425}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344593256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c87b08724c8021f4abf927e533228787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1344593262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8896308814386970943, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
@@ -113185,6 +113214,11 @@ PrefabInstance:
       propertyPath: Attack
       value: 
       objectReference: {fileID: 1900033381}
+    - target: {fileID: 8712562514516462360, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
+        type: 3}
+      propertyPath: Movement
+      value: 
+      objectReference: {fileID: 1344593259}
     - target: {fileID: 8712562514516462360, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
         type: 3}
       propertyPath: enemyAnim
