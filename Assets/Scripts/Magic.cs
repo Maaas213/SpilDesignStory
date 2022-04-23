@@ -12,15 +12,18 @@ public class Magic : MonoBehaviour
     public float FireBallSpeed;
     private float NextFireBall;
     public float MP;
-    /*public int numOfMana;
+    public int numOfMana;
     public Image[] mana;
     public Sprite fullMana;
-    public Sprite emptyMana;*/
+    public Sprite emptyMana;
 
     private SpriteRenderer SR;
     private SpriteRenderer BSR;
     private CircleCollider2D CC;
     private CircleCollider2D BCC;
+
+    public GameObject ManaPickup;
+    private EdgeCollider2D PUC;
 
     public bool Fireing;
     public bool BackFireing;
@@ -46,7 +49,10 @@ public class Magic : MonoBehaviour
         BSR.enabled = false;
         BCC.enabled = false;
 
-        MP = 3;
+        MP = 0;
+
+        PUC = ManaPickup.GetComponent<EdgeCollider2D>();
+        PUC.enabled = true;
 
     }
 
@@ -68,11 +74,6 @@ public class Magic : MonoBehaviour
         PlayerPos = new Vector3(Player.transform.position.x + 1, Player.transform.position.y, Player.transform.position.z);
         BackPlayerPos = new Vector3(Player.transform.position.x - 1, Player.transform.position.y, Player.transform.position.z);
 
-        /*if (MP > numOfMana)
-        {
-            MP = numOfMana;
-        }
-
         for (int i = 0; i < mana.Length; i++)
         {
             if (i < MP)
@@ -92,7 +93,7 @@ public class Magic : MonoBehaviour
             else
             {
                 mana[i].enabled = false;
-            }*/
+            }
 
 
             if (MP >= 3)
@@ -167,32 +168,31 @@ public class Magic : MonoBehaviour
             BCC.enabled = false;
         }
 
-        void OnTriggerEnter2D(Collider2D other)
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (MP < 3)
         {
-            if (MP < 3)
+            //if (NoMana == false)
+            //{
+            if (other.gameObject.CompareTag("Mana"))
             {
-                if (NoMana == false)
-                {
-                    if (other.gameObject.CompareTag("Mana"))
-                    {
-                        MP = MP + 1;
-                        StartCoroutine(NoManaCo());
-                        NoMana = true;
-                    }
-                }
+                MP = MP + 1;
+                Destroy(other.gameObject);
+                FindObjectOfType<AudioManager>().Play("Mana");
+                //StartCoroutine(NoManaCo());
+                //NoMana = true;
             }
+            //}
         }
+    }
 
-
-
-
-
-
-        IEnumerator NoManaCo()
+        /*IEnumerator NoManaCo()
         {
             yield return new WaitForSeconds(0.2f);
             NoMana = false;
-        }
-    //}
+        }*/
+    
 
 }

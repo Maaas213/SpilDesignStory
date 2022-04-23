@@ -6,12 +6,14 @@ public class FragileScript : MonoBehaviour
 {
     private SpriteRenderer SR;
     private BoxCollider2D BC;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         BC = gameObject.GetComponent<BoxCollider2D>();
         SR = gameObject.GetComponent<SpriteRenderer>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,7 +39,8 @@ public class FragileScript : MonoBehaviour
     private IEnumerator Breaking ()
     {
         FindObjectOfType<AudioManager>().Play("Crack");
-        yield return new WaitForSeconds(0.3f);
+        anim.SetBool("isCrumbling", true);
+        yield return new WaitForSeconds(0.75f);
         BC.enabled = false;
         SR.enabled = false;
         StartCoroutine(Fix());
@@ -48,5 +51,6 @@ public class FragileScript : MonoBehaviour
         yield return new WaitForSeconds(4);
         BC.enabled = true;
         SR.enabled = true;
+        anim.SetBool("isCrumbling", false);
     }
 }
