@@ -188,11 +188,11 @@ public class Magic : MonoBehaviour
         }
     }
 
-        /*IEnumerator NoManaCo()
-        {
-            yield return new WaitForSeconds(0.2f);
-            NoMana = false;
-        }*/
-    
+    /*IEnumerator NoManaCo()
+    {
+        yield return new WaitForSeconds(0.2f);
+        NoMana = false;
+    }*/
+
 
 }
