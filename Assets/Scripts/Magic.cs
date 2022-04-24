@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Fungus;
 
 public class Magic : MonoBehaviour
 {
@@ -32,6 +33,11 @@ public class Magic : MonoBehaviour
     private Vector3 PlayerPos;
     private Vector3 BackPlayerPos;
 
+    public KeyCode[] interactionskeys;
+    public Flowchart flowchart;
+    public bool inDialog;
+    public Interactive currentInteractive;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,46 +59,48 @@ public class Magic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("d"))
+        
         {
-            TurnRight = true;
-            TurnLeft = false;
-        }
-
-        if (Input.GetKeyDown("a"))
-        {
-            TurnLeft = true;
-            TurnRight = false;
-        }
-
-        PlayerPos = new Vector3(Player.transform.position.x + 1, Player.transform.position.y, Player.transform.position.z);
-        BackPlayerPos = new Vector3(Player.transform.position.x - 1, Player.transform.position.y, Player.transform.position.z);
-
-        /*if (MP > numOfMana)
-        {
-            MP = numOfMana;
-        }
-
-        for (int i = 0; i < mana.Length; i++)
-        {
-            if (i < MP)
+            if (Input.GetKeyDown("d"))
             {
-                mana[i].sprite = fullMana;
-            }
-            else
-            {
-                mana[i].sprite = emptyMana;
+                TurnRight = true;
+                TurnLeft = false;
             }
 
-
-            if (i < numOfMana)
+            if (Input.GetKeyDown("a"))
             {
-                mana[i].enabled = true;
+                TurnLeft = true;
+                TurnRight = false;
             }
-            else
+
+            PlayerPos = new Vector3(Player.transform.position.x + 1, Player.transform.position.y, Player.transform.position.z);
+            BackPlayerPos = new Vector3(Player.transform.position.x - 1, Player.transform.position.y, Player.transform.position.z);
+
+            /*if (MP > numOfMana)
             {
-                mana[i].enabled = false;
-            }*/
+                MP = numOfMana;
+            }
+
+            for (int i = 0; i < mana.Length; i++)
+            {
+                if (i < MP)
+                {
+                    mana[i].sprite = fullMana;
+                }
+                else
+                {
+                    mana[i].sprite = emptyMana;
+                }
+
+
+                if (i < numOfMana)
+                {
+                    mana[i].enabled = true;
+                }
+                else
+                {
+                    mana[i].enabled = false;
+                }*/
 
 
             if (MP >= 3)
@@ -148,6 +156,8 @@ public class Magic : MonoBehaviour
                 BSR.enabled = true;
                 BCC.enabled = true;
             }
+        }
+        
 
         }
 
@@ -169,6 +179,8 @@ public class Magic : MonoBehaviour
 
         void OnTriggerEnter2D(Collider2D other)
         {
+
+
             if (MP < 3)
             {
                 if (NoMana == false)
@@ -180,6 +192,7 @@ public class Magic : MonoBehaviour
                         NoMana = true;
                     }
                 }
+
             }
         }
 
@@ -193,6 +206,10 @@ public class Magic : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             NoMana = false;
         }
+    
+
+
+    
     //}
 
 }

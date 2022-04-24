@@ -105683,6 +105683,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb2122b0c2965344bec54d4c2cf840b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &871530123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 871530125}
+  - component: {fileID: 871530124}
+  m_Layer: 0
+  m_Name: Leia
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &871530124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871530123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: Leia
+  nameColor: {r: 0.8493247, g: 0.44495374, b: 0.9339623, a: 1}
+  soundEffect: {fileID: 0}
+  portraits: []
+  portraitsFace: 0
+  setSayDialog: {fileID: 0}
+  description: Leias fungus karakter
+--- !u!4 &871530125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871530123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &889747371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -106750,6 +106800,10 @@ MonoBehaviour:
   MP: 0
   Fireing: 0
   BackFireing: 0
+  interactionskeys: 
+  flowchart: {fileID: 0}
+  inDialog: 0
+  currentInteractive: {fileID: 0}
 --- !u!1 &1158107561
 GameObject:
   m_ObjectHideFlags: 0
@@ -118170,6 +118224,7 @@ GameObject:
   - component: {fileID: 1675781306}
   - component: {fileID: 1675781304}
   - component: {fileID: 1675781302}
+  - component: {fileID: 1675781308}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -118203,7 +118258,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1675781305}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1675781308}
   variables: []
   description: 
   stepPause: 0
@@ -118316,6 +118372,7 @@ MonoBehaviour:
   description: "Her er hvor Grahams og Leias samtale skal v\xE6re"
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 1675781308}
   - {fileID: 1675781306}
   - {fileID: 1675781302}
   suppressAllAutoSelections: 0
@@ -118360,6 +118417,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675781308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675781300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 5
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
 --- !u!1 &1676533678
 GameObject:
   m_ObjectHideFlags: 0
@@ -124172,6 +124247,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2125782527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2125782529}
+  - component: {fileID: 2125782528}
+  m_Layer: 0
+  m_Name: Graham
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2125782528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125782527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: Graham
+  nameColor: {r: 0.24430124, g: 0.8679245, b: 0.12691349, a: 1}
+  soundEffect: {fileID: 0}
+  portraits:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  portraitsFace: 1
+  setSayDialog: {fileID: 0}
+  description: Grahams fungus karakter
+--- !u!4 &2125782529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125782527}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2011559228229146241
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -560,11 +560,15 @@ public class BattleScript : MonoBehaviour
     {
         flowchart.ExecuteBlock(currentInteractive.blockName);
         inDialog = true;
+        FindObjectOfType<AudioManager>().Stop("Theme");
+        FindObjectOfType<AudioManager>().Stop("Ambience1");
     }
 
     public void ExitBlock()
     {
         inDialog = false;
+        FindObjectOfType<AudioManager>().Play("Theme");
+        FindObjectOfType<AudioManager>().Play("Ambience1");
     }
 
     void CreateDust()
