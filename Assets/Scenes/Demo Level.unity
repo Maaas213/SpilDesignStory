@@ -105735,8 +105735,12 @@ MonoBehaviour:
   nameText: Leia
   nameColor: {r: 0.8493247, g: 0.44495374, b: 0.9339623, a: 1}
   soundEffect: {fileID: 0}
-  portraits: []
-  portraitsFace: 0
+  portraits:
+  - {fileID: 21300000, guid: 662782f361dc92744a59d55aeeed0484, type: 3}
+  - {fileID: 21300000, guid: b95b4212ee043ed4eaf1781f26b2fc25, type: 3}
+  - {fileID: 21300000, guid: 412ee9b1e06d65e43abeb01625f04453, type: 3}
+  - {fileID: 21300000, guid: 1f41a05f4bdde464e85e362d2e310290, type: 3}
+  portraitsFace: 2
   setSayDialog: {fileID: 0}
   description: Leias fungus karakter
 --- !u!4 &871530125
@@ -106829,10 +106833,6 @@ MonoBehaviour:
     type: 3}
   Fireing: 0
   BackFireing: 0
-  interactionskeys: 
-  flowchart: {fileID: 0}
-  inDialog: 0
-  currentInteractive: {fileID: 0}
 --- !u!1 &1158107561
 GameObject:
   m_ObjectHideFlags: 0
@@ -118270,10 +118270,15 @@ GameObject:
   - component: {fileID: 1675781301}
   - component: {fileID: 1675781305}
   - component: {fileID: 1675781303}
-  - component: {fileID: 1675781306}
   - component: {fileID: 1675781304}
   - component: {fileID: 1675781302}
+  - component: {fileID: 1675781306}
   - component: {fileID: 1675781308}
+  - component: {fileID: 1675781309}
+  - component: {fileID: 1675781311}
+  - component: {fileID: 1675781310}
+  - component: {fileID: 1675781313}
+  - component: {fileID: 1675781312}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -118308,7 +118313,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1675781305}
   selectedCommands:
-  - {fileID: 1675781308}
+  - {fileID: 1675781306}
   variables: []
   description: 
   stepPause: 0
@@ -118421,8 +118426,13 @@ MonoBehaviour:
   description: "Her er hvor Grahams og Leias samtale skal v\xE6re"
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 1675781308}
   - {fileID: 1675781306}
+  - {fileID: 1675781308}
+  - {fileID: 1675781309}
+  - {fileID: 1675781311}
+  - {fileID: 1675781310}
+  - {fileID: 1675781313}
+  - {fileID: 1675781312}
   - {fileID: 1675781302}
   suppressAllAutoSelections: 0
 --- !u!114 &1675781306
@@ -118437,12 +118447,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 2
+  itemId: 5
   indentLevel: 0
-  storyText: Test!
+  storyText: "\u201CThat\u2026{w=0.5}that{w=0.5}\u2026{b}thing{/b}\u2026{w=1}was
+    a human\u2026\u201D"
   description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
+  character: {fileID: 2125782528}
+  portrait: {fileID: 21300000, guid: b12ef83559a0c9546a6ff50ccd88c379, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -118468,6 +118479,61 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1675781308
 MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675781300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 6
+  indentLevel: 0
+  storyText: "{i}There is no strength to Graham\u2019s voice.{/i}"
+  description: 
+  character: {fileID: 871530124}
+  portrait: {fileID: 21300000, guid: 412ee9b1e06d65e43abeb01625f04453, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1675781309
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675781300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 7
+  indentLevel: 0
+  storyText: " {i}It\xB4s so faint that I can\xB4t even make out what sort of emotion
+    is underlying the words.{/i}"
+  description: 
+  character: {fileID: 871530124}
+  portrait: {fileID: 21300000, guid: 412ee9b1e06d65e43abeb01625f04453, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 1
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1675781310
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -118475,15 +118541,106 @@ MonoBehaviour:
   m_GameObject: {fileID: 1675781300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 5
+  itemId: 9
   indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 1
-  durationOLD: 0
+  storyText: ' {i}To see Graham vulnerable for once,{w=1} to be the one he depended
+    on.{/i}'
+  description: 
+  character: {fileID: 871530124}
+  portrait: {fileID: 21300000, guid: 412ee9b1e06d65e43abeb01625f04453, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 1
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1675781311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675781300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 8
+  indentLevel: 0
+  storyText: '{i}I used to wish for such an occasion.{/i}'
+  description: 
+  character: {fileID: 871530124}
+  portrait: {fileID: 21300000, guid: 412ee9b1e06d65e43abeb01625f04453, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1675781312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675781300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 11
+  indentLevel: 0
+  storyText: "{i}is this\u2026{w=1}{b}heaviness.{/b}{/i}"
+  description: 
+  character: {fileID: 871530124}
+  portrait: {fileID: 21300000, guid: 1f41a05f4bdde464e85e362d2e310290, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 1
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1675781313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675781300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 10
+  indentLevel: 0
+  storyText: " {i}But the only thing I feel\u2026{/i}"
+  description: 
+  character: {fileID: 871530124}
+  portrait: {fileID: 21300000, guid: 412ee9b1e06d65e43abeb01625f04453, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 1
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!1 &1676533678
 GameObject:
   m_ObjectHideFlags: 0
@@ -124329,9 +124486,10 @@ MonoBehaviour:
   nameColor: {r: 0.24430124, g: 0.8679245, b: 0.12691349, a: 1}
   soundEffect: {fileID: 0}
   portraits:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 6cce895f2a9c2a14980fbb170fb018ef, type: 3}
+  - {fileID: 21300000, guid: bf2ea4b39076d2b459929fd7096c7eb0, type: 3}
+  - {fileID: 21300000, guid: b12ef83559a0c9546a6ff50ccd88c379, type: 3}
+  - {fileID: 21300000, guid: c759f93902afb2a4db163ea61daac23f, type: 3}
   portraitsFace: 1
   setSayDialog: {fileID: 0}
   description: Grahams fungus karakter
