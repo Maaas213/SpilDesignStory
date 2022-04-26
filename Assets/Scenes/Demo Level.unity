@@ -104739,6 +104739,7 @@ MonoBehaviour:
   Shot: {fileID: 840836303}
   Speed: 0.3
   NextShot: 0
+  HP: 3
 --- !u!95 &645746143
 Animator:
   serializedVersion: 3
@@ -105830,6 +105831,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8712562514516462360, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
         type: 3}
+      propertyPath: HP
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712562514516462360, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
+        type: 3}
       propertyPath: blood
       value: 
       objectReference: {fileID: 576076621}
@@ -106166,6 +106172,7 @@ MonoBehaviour:
   Shot: {fileID: 1294080523}
   Speed: 0.3
   NextShot: 0
+  HP: 3
 --- !u!95 &970824503
 Animator:
   serializedVersion: 3
@@ -106392,9 +106399,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1061891814}
   - component: {fileID: 1061891813}
-  - component: {fileID: 1061891812}
   - component: {fileID: 1061891811}
   - component: {fileID: 1061891815}
+  - component: {fileID: 1061891812}
   m_Layer: 6
   m_Name: Back TankAttack
   m_TagString: TankAttack
@@ -106452,8 +106459,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &1061891812
-CapsuleCollider2D:
+--- !u!61 &1061891812
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106465,9 +106472,19 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.014177341, y: 0.03257192}
-  m_Size: {x: 0.32942575, y: 0.78069973}
-  m_Direction: 0
+  m_Offset: {x: 0.08664693, y: 0.20513485}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.35, y: 0.6}
+    newSize: {x: 0.35, y: 0.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.475678, y: 0.3033143}
+  m_EdgeRadius: 0
 --- !u!50 &1061891813
 Rigidbody2D:
   serializedVersion: 4
@@ -106497,7 +106514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061891810}
   m_LocalRotation: {x: -0, y: -0, z: -0.99999976, w: -0.00074058084}
-  m_LocalPosition: {x: -1.19, y: 1.23, z: 0}
+  m_LocalPosition: {x: -1.47, y: 0.1, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1133152003}
@@ -113260,6 +113277,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8712562514516462360, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
         type: 3}
+      propertyPath: HP
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712562514516462360, guid: 5cf4f9d6421ed4c4b80738bb83a636f1,
+        type: 3}
       propertyPath: blood
       value: 
       objectReference: {fileID: 344071405}
@@ -113345,9 +113367,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1590349400}
   - component: {fileID: 1590349398}
-  - component: {fileID: 1590349397}
   - component: {fileID: 1590349399}
   - component: {fileID: 1590349401}
+  - component: {fileID: 1590349397}
   m_Layer: 6
   m_Name: TankAttack
   m_TagString: TankAttack
@@ -113355,8 +113377,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!70 &1590349397
-CapsuleCollider2D:
+--- !u!61 &1590349397
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -113368,9 +113390,19 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.014177341, y: 0.03257192}
-  m_Size: {x: 0.32942575, y: 0.78069973}
-  m_Direction: 0
+  m_Offset: {x: 0.055658236, y: -0.20638469}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.35, y: 0.6}
+    newSize: {x: 0.35, y: 0.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.43984023, y: 0.3070528}
+  m_EdgeRadius: 0
 --- !u!50 &1590349398
 Rigidbody2D:
   serializedVersion: 4
@@ -113450,7 +113482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590349396}
   m_LocalRotation: {x: -0, y: -0, z: 0.002733718, w: 0.9999963}
-  m_LocalPosition: {x: 1.46, y: 1.19, z: 0}
+  m_LocalPosition: {x: 1.47, y: 0.1, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1133152003}

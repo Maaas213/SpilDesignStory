@@ -174,25 +174,25 @@ public class Magic : MonoBehaviour
     {
         if (MP < 3)
         {
-            //if (NoMana == false)
-            //{
-            if (other.gameObject.CompareTag("Mana"))
+            if (NoMana == false)
             {
-                MP = MP + 1;
-                Destroy(other.gameObject);
-                FindObjectOfType<AudioManager>().Play("Mana");
-                //StartCoroutine(NoManaCo());
-                //NoMana = true;
+                if (other.gameObject.CompareTag("Mana"))
+                {
+                    MP = MP + 1;
+                    Destroy(other.gameObject);
+                    FindObjectOfType<AudioManager>().Play("Mana");
+                    StartCoroutine(NoManaCo());
+                    NoMana = true;
+                }
+
             }
-            //}
         }
+
+        IEnumerator NoManaCo()
+        {
+            yield return new WaitForSeconds(0.2f);
+            NoMana = false;
+        }
+
     }
-
-    /*IEnumerator NoManaCo()
-    {
-        yield return new WaitForSeconds(0.2f);
-        NoMana = false;
-    }*/
-
-
 }

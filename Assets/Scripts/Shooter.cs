@@ -15,7 +15,8 @@ public class Shooter : MonoBehaviour
     private Transform ST;
 
     private Vector3 OriPos;
-    
+
+    public float HP;
 
     // Start is called before the first frame update
     void Start()
@@ -49,12 +50,18 @@ public class Shooter : MonoBehaviour
             SSR.enabled = true;
             SCC.enabled = true;
         }
+
+        if(HP < 1)
+        {
+            Destroy(gameObject);
+        }
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Melee"))
         {
-            Destroy(gameObject);
+            HP = HP - 1;
+            
         }
         if (other.gameObject.CompareTag("Lightning"))
         {
@@ -62,11 +69,11 @@ public class Shooter : MonoBehaviour
         }
         if (other.gameObject.CompareTag("TankAttack"))
         {
-            Destroy(gameObject);
+            HP = HP - 3; 
         }
         if (other.gameObject.CompareTag("FireBall"))
         {
-            Destroy(gameObject);
+            HP = HP - 3;
         }
     }
 

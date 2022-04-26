@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     private BoxCollider2D BC;
     private CapsuleCollider2D CC;
     private float NextAttack;
+    public float HP;
 
     public Animator enemyAnim;
 
@@ -45,7 +46,11 @@ public class Enemy : MonoBehaviour
 
 
         }
-
+        if (HP < 1)
+        {
+            StartCoroutine(Death());
+            CC.enabled = false;
+        }
 
     }
 
@@ -53,8 +58,9 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Melee"))
         {
-            CC.enabled = false;
+            //CC.enabled = false;
             Movement.enabled = false;
+            HP = HP - 1;
             StartCoroutine(BloodAct()); 
         }
         if (other.gameObject.CompareTag("Lightning"))
@@ -63,12 +69,16 @@ public class Enemy : MonoBehaviour
         }
         if (other.gameObject.CompareTag("TankAttack"))
         {
-            Destroy(gameObject);
+            HP = HP - 3;
+            //Destroy(gameObject);
         }
         if (other.gameObject.CompareTag("FireBall"))
         {
-            Destroy(gameObject);
+            HP = HP - 3;
+            //Destroy(gameObject);
         }
+
+
     }
 
 
@@ -86,9 +96,16 @@ public class Enemy : MonoBehaviour
     {
         
         BloodSpray();
+        yield return new WaitForSeconds(1f);
+        Movement.enabled = true;
+        //Destroy(gameObject);
+
+    }
+    IEnumerator Death()
+    {
+        BloodSpray();
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
-
     }
 
     void BloodSpray()

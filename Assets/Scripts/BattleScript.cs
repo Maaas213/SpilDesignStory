@@ -45,7 +45,7 @@ public class BattleScript : MonoBehaviour
     //private SpriteRenderer LSR;
     //private BoxCollider2D LBC;
     private SpriteRenderer TASR;
-    private CapsuleCollider2D TACC;
+    private BoxCollider2D TACC;
     private SpriteRenderer FBSR;
     private CircleCollider2D FBCC;
     private Rigidbody2D FBRB;
@@ -58,7 +58,7 @@ public class BattleScript : MonoBehaviour
     //private SpriteRenderer BLSR;
     //private BoxCollider2D BLBC;
     private SpriteRenderer BTASR;
-    private CapsuleCollider2D BTACC;
+    private BoxCollider2D BTACC;
     private SpriteRenderer BFBSR;
     private CircleCollider2D BFBCC;
     private Rigidbody2D BFBRB;
@@ -98,9 +98,9 @@ public class BattleScript : MonoBehaviour
         //BLSR = BackLightning.GetComponent<SpriteRenderer>();
         //BLBC = BackLightning.GetComponent<BoxCollider2D>();
         TASR = TankAttack.GetComponent<SpriteRenderer>();
-        TACC = TankAttack.GetComponent<CapsuleCollider2D>();
+        TACC = TankAttack.GetComponent<BoxCollider2D>();
         BTASR = BackTankAttack.GetComponent<SpriteRenderer>();
-        BTACC = BackTankAttack.GetComponent<CapsuleCollider2D>();
+        BTACC = BackTankAttack.GetComponent<BoxCollider2D>();
         //FBSR = Fireball.GetComponent<SpriteRenderer>();
         //FBCC = Fireball.GetComponent<CircleCollider2D>();
         //BFBSR = BackFireball.GetComponent<SpriteRenderer>();
@@ -152,6 +152,7 @@ public class BattleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Speed = 0.06f;
 
         Interact();
 
@@ -278,7 +279,7 @@ public class BattleScript : MonoBehaviour
             {
                 if (TurnRight == true)
                 {
-                    if (Input.GetKeyDown("t"))
+                    if (Input.GetKeyDown("e"))
                     {
                         TASR.enabled = true;
                         TACC.enabled = true;
@@ -294,7 +295,7 @@ public class BattleScript : MonoBehaviour
 
                 if (TurnLeft == true)
                 {
-                    if (Input.GetKeyDown("t"))
+                    if (Input.GetKeyDown("e"))
                     {
                         BTASR.enabled = true;
                         BTACC.enabled = true;
