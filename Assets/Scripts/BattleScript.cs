@@ -86,6 +86,8 @@ public class BattleScript : MonoBehaviour
 
     public GameObject Canvas;
 
+    private bool CanMove;
+
     //public bool soundPlaying;
 
     void Start()
@@ -146,6 +148,8 @@ public class BattleScript : MonoBehaviour
         tankAttackAnim = TankAttack.GetComponent<Animator>();
         backTankAttackAnim = BackTankAttack.GetComponent<Animator>();
 
+        CanMove = true;
+
    
         //OriPos1 = new Vector3(Fireball.transform.position.x, Fireball.transform.position.y, Fireball.transform.position.z);
         //OriPos2 = new Vector3(BackFireball.transform.position.x, BackFireball.transform.position.y, BackFireball.transform.position.z);
@@ -154,232 +158,236 @@ public class BattleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Speed = 0.06f;
+        Speed = 0.06f;
 
         Interact();
 
         if (!inDialog)
         {
-            float moveHorizontal = Input.GetAxis("Horizontal");
-
-            Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
-            
-            if ((Input.GetKey("a") || Input.GetKey("d")) && OnGround == true)
+            if (CanMove)
             {
-                CreateDust();
-            }
+                float moveHorizontal = Input.GetAxis("Horizontal");
 
-            //RB.AddForce(movement * Speed, ForceMode2D.Impulse);
-            transform.Translate(movement * Speed);
+                Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
 
-            anim.SetFloat("Speed", Mathf.Abs(moveHorizontal));
-
-            Vector3 Jump = new Vector3(0.0f, 1, 0.0f);
-            if (OnGround == true)
-            {
-                if (Input.GetKeyDown("w"))
+                if ((Input.GetKey("a") || Input.GetKey("d")) && OnGround == true)
                 {
-
-                    //transform.Translate(Jump * JumpForce);
-                    RB.AddForce(Jump * JumpForce);
-                    FindObjectOfType<AudioManager>().Play("Jump");
-                    OnGround = false;
-                    anim.SetBool("isJumping", true);
                     CreateDust();
-
-                    //StartCoroutine(DoubleJumpCoRoutine());
-
                 }
-            }
-            if (OnGround == true)
-            {
-                anim.SetBool("isJumping", false);
-            }
 
-            if (OnGround == false)
-            {
-                FindObjectOfType<AudioManager>().Stop("Steps2");
-                FindObjectOfType<AudioManager>().Stop("Steps1");
-            }
+                //RB.AddForce(movement * Speed, ForceMode2D.Impulse);
+                transform.Translate(movement * Speed);
 
+                anim.SetFloat("Speed", Mathf.Abs(moveHorizontal));
 
-
-            /*if (Time.time > NextLightning)
-            {
-                if (TurnRight == true)
+                Vector3 Jump = new Vector3(0.0f, 1, 0.0f);
+                if (OnGround == true)
                 {
-                    if (Input.GetKeyDown("l"))
+                    if (Input.GetKeyDown("w"))
                     {
-                        LSR.enabled = true;
-                        LBC.enabled = true;
-                        NextLightning = Time.time + 5;
-                        StartCoroutine(LightningCoRoutine());
-                    }
-                }
-                if (TurnLeft == true)
-                {
-                    if (Input.GetKeyDown("l"))
-                    {
-                        BLSR.enabled = true;
-                        BLBC.enabled = true;
-                        NextLightning = Time.time + 5;
-                        StartCoroutine(BackLightningCoRoutine());
-                    }
-                }
-            }*/
 
-            if (Time.time > NextMelee)
-            {
-                if (TurnRight == true)
-                {
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        MSR.enabled = true;
-                        MBC.enabled = true;
+                        //transform.Translate(Jump * JumpForce);
+                        RB.AddForce(Jump * JumpForce);
+                        FindObjectOfType<AudioManager>().Play("Jump");
+                        OnGround = false;
+                        anim.SetBool("isJumping", true);
+                        CreateDust();
 
-                        FindObjectOfType<AudioManager>().Play("Sword");
-
-                        meleeAnim.SetBool("isAttacking", true);
-
-                        NextMelee = Time.time + 0.2f;
-                        StartCoroutine(MeleeCoRoutine());
-                    }
-                }
-                if (TurnLeft == true)
-                {
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        BMSR.enabled = true;
-                        BMBC.enabled = true;
-
-                        FindObjectOfType<AudioManager>().Play("Sword");
-
-                        backMeleeAnim.SetBool("isAttacking", true);
-
-                        NextMelee = Time.time + 0.2f;
-                        StartCoroutine(BackMeleeCoRoutine());
-
+                        //StartCoroutine(DoubleJumpCoRoutine());
 
                     }
                 }
-
-
-                if (Input.GetKeyDown("d"))
+                if (OnGround == true)
                 {
-                    TurnRight = true;
-                    TurnLeft = false;
+                    anim.SetBool("isJumping", false);
                 }
-                
-                if (Input.GetKeyDown("a"))
-                {
-                    TurnLeft = true;
-                    TurnRight = false;
-                }
-            }
 
-            if (Time.time > NextTankAttack)
-            {
-                if (TurnRight == true)
+                if (OnGround == false)
                 {
-                    if (Input.GetKeyDown("e"))
+                    FindObjectOfType<AudioManager>().Stop("Steps2");
+                    FindObjectOfType<AudioManager>().Stop("Steps1");
+                }
+
+
+
+                /*if (Time.time > NextLightning)
+                {
+                    if (TurnRight == true)
                     {
-                        TASR.enabled = true;
-                        TACC.enabled = true;
-
-                        tankAttackAnim.SetBool("isHitting", true);
-
-                        NextTankAttack = Time.time + 5;
-                        StartCoroutine(TankAttackCoRoutine());
-                        FindObjectOfType<AudioManager>().Play("Ax");
-
-                    }
-                }
-
-                if (TurnLeft == true)
-                {
-                    if (Input.GetKeyDown("e"))
-                    {
-                        BTASR.enabled = true;
-                        BTACC.enabled = true;
-
-                        backTankAttackAnim.SetBool("isHitting", true);
-
-                        StartCoroutine(BackTankAttackCoRoutine());
-                        NextTankAttack = Time.time + 5;
-                    }
-                }
-            }
-
-            /*
-            if ( Time.time > NextFireball)
-            { 
-                if(Input.GetKeyDown("f"))
-                {
-                    {
-                        if (TurnRight == true)
+                        if (Input.GetKeyDown("l"))
                         {
-                            Vector3 FireballShot = new Vector3(1.0f, 0.0f, 0.0f);
-                            Fireball.transform.Translate(FireballShot * FireballSpeed);
-                            FBSR.enabled = true;
-                            FBCC.enabled = true;
-                            StartCoroutine(FireBallCoRoutine());
-                            NextFireball = Time.time + 3;
+                            LSR.enabled = true;
+                            LBC.enabled = true;
+                            NextLightning = Time.time + 5;
+                            StartCoroutine(LightningCoRoutine());
                         }
-                        if (TurnLeft == true)
+                    }
+                    if (TurnLeft == true)
+                    {
+                        if (Input.GetKeyDown("l"))
                         {
-                            Vector3 BackFireballShot = new Vector3(-1.0f, 0.0f, 0.0f);
-                            BackFireball.transform.Translate(BackFireballShot * FireballSpeed);
-                            BFBCC.enabled = true;
-                            BFBSR.enabled = true;
-                            StartCoroutine(BackFireballCoRoutine());
-                            NextFireball = Time.time + 3;
+                            BLSR.enabled = true;
+                            BLBC.enabled = true;
+                            NextLightning = Time.time + 5;
+                            StartCoroutine(BackLightningCoRoutine());
+                        }
+                    }
+                }*/
+
+                if (Time.time > NextMelee)
+                {
+                    if (TurnRight == true)
+                    {
+                        if (Input.GetKeyDown(KeyCode.Space))
+                        {
+                            MSR.enabled = true;
+                            MBC.enabled = true;
+
+                            FindObjectOfType<AudioManager>().Play("Sword");
+
+                            meleeAnim.SetBool("isAttacking", true);
+
+                            NextMelee = Time.time + 0.2f;
+                            StartCoroutine(MeleeCoRoutine());
+                        }
+                    }
+                    if (TurnLeft == true)
+                    {
+                        if (Input.GetKeyDown(KeyCode.Space))
+                        {
+                            BMSR.enabled = true;
+                            BMBC.enabled = true;
+
+                            FindObjectOfType<AudioManager>().Play("Sword");
+
+                            backMeleeAnim.SetBool("isAttacking", true);
+
+                            NextMelee = Time.time + 0.2f;
+                            StartCoroutine(BackMeleeCoRoutine());
+
+
+                        }
+                    }
+
+
+                    if (Input.GetKeyDown("d"))
+                    {
+                        TurnRight = true;
+                        TurnLeft = false;
+                    }
+
+                    if (Input.GetKeyDown("a"))
+                    {
+                        TurnLeft = true;
+                        TurnRight = false;
+                    }
+                }
+
+                if (Time.time > NextTankAttack)
+                {
+                    if (TurnRight == true)
+                    {
+                        if (Input.GetKeyDown("e"))
+                        {
+                            TASR.enabled = true;
+                            TACC.enabled = true;
+
+                            tankAttackAnim.SetBool("isHitting", true);
+
+                            NextTankAttack = Time.time + 5;
+                            StartCoroutine(TankAttackCoRoutine());
+                            FindObjectOfType<AudioManager>().Play("Ax");
+
+                        }
+                    }
+
+                    if (TurnLeft == true)
+                    {
+                        if (Input.GetKeyDown("e"))
+                        {
+                            BTASR.enabled = true;
+                            BTACC.enabled = true;
+
+                            backTankAttackAnim.SetBool("isHitting", true);
+
+                            StartCoroutine(BackTankAttackCoRoutine());
+                            NextTankAttack = Time.time + 5;
                         }
                     }
                 }
-            }
-            */
-                
 
-            if (TurnRight == true)
-            {
-                SR.flipX = true;
-            }
-            if (TurnLeft == true)
-            {
-                SR.flipX = false;
-            }
-
-            if (HP == 0)
-            {
-                StartCoroutine(Death());
-            }
-
-            if (HP > numOfHearts)
-            {
-                HP = numOfHearts;
-            }
-
-            for (int i = 0; i < hearts.Length; i++)
-            {
-                if (i < HP)
-                {
-                    hearts[i].sprite = fullHeart;
+                /*
+                if ( Time.time > NextFireball)
+                { 
+                    if(Input.GetKeyDown("f"))
+                    {
+                        {
+                            if (TurnRight == true)
+                            {
+                                Vector3 FireballShot = new Vector3(1.0f, 0.0f, 0.0f);
+                                Fireball.transform.Translate(FireballShot * FireballSpeed);
+                                FBSR.enabled = true;
+                                FBCC.enabled = true;
+                                StartCoroutine(FireBallCoRoutine());
+                                NextFireball = Time.time + 3;
+                            }
+                            if (TurnLeft == true)
+                            {
+                                Vector3 BackFireballShot = new Vector3(-1.0f, 0.0f, 0.0f);
+                                BackFireball.transform.Translate(BackFireballShot * FireballSpeed);
+                                BFBCC.enabled = true;
+                                BFBSR.enabled = true;
+                                StartCoroutine(BackFireballCoRoutine());
+                                NextFireball = Time.time + 3;
+                            }
+                        }
+                    }
                 }
-                else
-                {
-                    hearts[i].sprite = emptyHeart;
-                }
+                */
 
 
-                if (i < numOfHearts)
+                if (TurnRight == true)
                 {
-                    hearts[i].enabled = true;
+                    SR.flipX = true;
                 }
-                else
+                if (TurnLeft == true)
                 {
-                    hearts[i].enabled = false;
+                    SR.flipX = false;
+                }
+
+                if (HP == 0)
+                {
+                    StartCoroutine(Death());
+                }
+
+                if (HP > numOfHearts)
+                {
+                    HP = numOfHearts;
+                }
+
+                for (int i = 0; i < hearts.Length; i++)
+                {
+                    if (i < HP)
+                    {
+                        hearts[i].sprite = fullHeart;
+                    }
+                    else
+                    {
+                        hearts[i].sprite = emptyHeart;
+                    }
+
+
+                    if (i < numOfHearts)
+                    {
+                        hearts[i].enabled = true;
+                    }
+                    else
+                    {
+                        hearts[i].enabled = false;
+                    }
                 }
             }
+
         }
         
     }
@@ -581,9 +589,11 @@ public class BattleScript : MonoBehaviour
 
     IEnumerator Death()
     {
-        //anim.SetBool("isDead", true);
+        CanMove = false;
+        FindObjectOfType<AudioManager>().Stop("Steps2");
+        FindObjectOfType<AudioManager>().Stop("Steps1");
         anim.Play("OpheliaDeath");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         StartCoroutine(Canvas.GetComponent<FadeToBlack>().FadeBlackOutSquare());
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Demo Level");
