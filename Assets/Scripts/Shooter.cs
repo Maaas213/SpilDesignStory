@@ -18,6 +18,8 @@ public class Shooter : MonoBehaviour
 
     public float HP;
 
+    public Animator cloudAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +63,8 @@ public class Shooter : MonoBehaviour
         if (other.gameObject.CompareTag("Melee"))
         {
             HP = HP - 1;
+            cloudAnim.SetBool("takingDamage", true);
+            StartCoroutine(NoMoreDmg());
             
         }
         if (other.gameObject.CompareTag("Lightning"))
@@ -69,12 +73,20 @@ public class Shooter : MonoBehaviour
         }
         if (other.gameObject.CompareTag("TankAttack"))
         {
-            HP = HP - 3; 
+            HP = HP - 3;
+            cloudAnim.SetBool("takingDamage", true);
         }
         if (other.gameObject.CompareTag("FireBall"))
         {
             HP = HP - 3;
+            cloudAnim.SetBool("takingDamage", true);
         }
+    }
+
+    IEnumerator NoMoreDmg()
+    {
+        yield return new WaitForSeconds(0.5f);
+        cloudAnim.SetBool("takingDamage", false);
     }
 
 }

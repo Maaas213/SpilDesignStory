@@ -84,6 +84,8 @@ public class BattleScript : MonoBehaviour
 
     public ParticleSystem dust;
 
+    public GameObject Canvas;
+
     //public bool soundPlaying;
 
     void Start()
@@ -152,7 +154,7 @@ public class BattleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Speed = 0.06f;
+        //Speed = 0.06f;
 
         Interact();
 
@@ -349,7 +351,7 @@ public class BattleScript : MonoBehaviour
 
             if (HP == 0)
             {
-                SceneManager.LoadScene("Demo Level");
+                StartCoroutine(Death());
             }
 
             if (HP > numOfHearts)
@@ -575,5 +577,15 @@ public class BattleScript : MonoBehaviour
     void CreateDust()
     {
         dust.Play();
+    }
+
+    IEnumerator Death()
+    {
+        //anim.SetBool("isDead", true);
+        anim.Play("OpheliaDeath");
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(Canvas.GetComponent<FadeToBlack>().FadeBlackOutSquare());
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("Demo Level");
     }
 }
