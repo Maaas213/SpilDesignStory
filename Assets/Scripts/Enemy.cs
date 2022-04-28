@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
             SR.enabled = true;
             BC.enabled = true;
             NextAttack = Time.time + Random.Range(2, 6);
+            Movement.enabled = false;
 
             enemyAnim.SetBool("isAttacking", true);
 
@@ -48,6 +49,9 @@ public class Enemy : MonoBehaviour
         }
         if (HP < 1)
         {
+            Movement.enabled = false;
+            enemyAnim.SetBool("takingDamage", false);
+            enemyAnim.SetBool("isDead", true);
             StartCoroutine(Death());
             CC.enabled = false;
         }
@@ -61,6 +65,7 @@ public class Enemy : MonoBehaviour
             //CC.enabled = false;
             Movement.enabled = false;
             HP = HP - 1;
+            enemyAnim.SetBool("takingDamage", true);
             StartCoroutine(BloodAct()); 
         }
         if (other.gameObject.CompareTag("Lightning"))
@@ -70,6 +75,8 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("TankAttack"))
         {
             HP = HP - 3;
+            enemyAnim.SetBool("takingDamage", true);
+            StartCoroutine(BloodAct());
             //Destroy(gameObject);
         }
         if (other.gameObject.CompareTag("FireBall"))
@@ -85,11 +92,12 @@ public class Enemy : MonoBehaviour
 
     IEnumerator AttackCo()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.6f);
         SR.enabled = false;
         BC.enabled = false;
 
         enemyAnim.SetBool("isAttacking", false);
+        Movement.enabled = true;
     }
 
     IEnumerator BloodAct()
@@ -97,6 +105,7 @@ public class Enemy : MonoBehaviour
         
         BloodSpray();
         yield return new WaitForSeconds(1f);
+        enemyAnim.SetBool("takingDamage", false);
         Movement.enabled = true;
         //Destroy(gameObject);
 
@@ -104,7 +113,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Death()
     {
         BloodSpray();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2.8f);
         Destroy(gameObject);
     }
 
