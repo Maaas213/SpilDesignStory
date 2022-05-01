@@ -7,6 +7,7 @@ public class Shot : MonoBehaviour
     private SpriteRenderer SR;
     private CircleCollider2D CC;
 
+    public ParticleSystem glitch;
 
 
     // Start is called before the first frame update
@@ -15,7 +16,7 @@ public class Shot : MonoBehaviour
         SR = GetComponent<SpriteRenderer>();
         CC = GetComponent<CircleCollider2D>();
 
-
+        glitch.Play();
     }
 
     // Update is called once per frame

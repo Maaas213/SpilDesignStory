@@ -20,6 +20,8 @@ public class Shooter : MonoBehaviour
 
     public Animator cloudAnim;
 
+    public ParticleSystem bigGlitchy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class Shooter : MonoBehaviour
 
         OriPos = new Vector3(Shot.transform.position.x, Shot.transform.position.y, Shot.transform.position.z);
 
+        bigGlitchy.Play();
     }
 
     // Update is called once per frame
