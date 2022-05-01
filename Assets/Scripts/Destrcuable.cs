@@ -5,15 +5,19 @@ using UnityEngine;
 public class Destrcuable : MonoBehaviour
 {
 
-    private SpriteRenderer SR;
-    private BoxCollider2D BC;
+    //private SpriteRenderer SR;
+    //private BoxCollider2D BC;
+    private EdgeCollider2D EC;
 
     public ParticleSystem rock;
+
+    public Animator wallAnim;
     
     void Start()
     {
-        SR = GetComponent<SpriteRenderer>();
-        BC = GetComponent<BoxCollider2D>();
+        //SR = GetComponent<SpriteRenderer>();
+        //BC = GetComponent<BoxCollider2D>();
+        EC = GetComponent<EdgeCollider2D>();
     }
 
     // Update is called once per frame
@@ -24,14 +28,15 @@ public class Destrcuable : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Enemy1"))
+        /*if(other.gameObject.CompareTag("Enemy1"))
         {
             BC.enabled = false;
             SR.enabled = false;
-        }
+        }*/
 
         if (other.gameObject.CompareTag("TankAttack"))
         {
+            wallAnim.SetBool("isDestroyed", true);
             StartCoroutine(RockSmash());
         }
     }
@@ -39,8 +44,9 @@ public class Destrcuable : MonoBehaviour
     IEnumerator RockSmash()
     {
         RockPar();
-        yield return new WaitForSeconds(0.5f);
-        Destroy(gameObject);
+        yield return new WaitForSeconds(1f);
+        //Destroy(gameObject);
+        EC.enabled = false;
     }
 
     void RockPar()
