@@ -439,10 +439,9 @@ public class BattleScript : MonoBehaviour
             }
         }
 
-
         if (other.gameObject.CompareTag("Death"))
         {
-            HP = 0;
+            SceneManager.LoadScene("Demo Level");
         }
     }
 
@@ -539,6 +538,11 @@ public class BattleScript : MonoBehaviour
         {
             currentInteractive = interactive;
         }
+
+        if (collision.gameObject.CompareTag("Fall"))
+        {
+            StartCoroutine(Canvas.GetComponent<FadeToBlack>().FadeBlackOutSquare());
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -590,6 +594,7 @@ public class BattleScript : MonoBehaviour
     IEnumerator Death()
     {
         CanMove = false;
+        CC.enabled = false;
         FindObjectOfType<AudioManager>().Stop("Steps2");
         FindObjectOfType<AudioManager>().Stop("Steps1");
         anim.Play("OpheliaDeath");

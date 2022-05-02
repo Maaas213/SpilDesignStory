@@ -25,6 +25,7 @@ TagManager:
   - Mover
   - Goal2
   - Boss
+  - Fall
   layers:
   - Default
   - TransparentFX
