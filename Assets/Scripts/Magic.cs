@@ -17,6 +17,8 @@ public class Magic : MonoBehaviour
     public Sprite fullMana;
     public Sprite emptyMana;
     public ParticleSystem glow;
+    public ParticleSystem fireParticleFront;
+    public ParticleSystem fireParticleBack;
 
     private SpriteRenderer SR;
     private SpriteRenderer BSR;
@@ -109,6 +111,7 @@ public class Magic : MonoBehaviour
                             FireBall.transform.position = PlayerPos;
                             Fireing = true;
                             BackFireing = false;
+                            fireParticleFront.Play();
                             NextFireBall = Time.time + 2;
                             StartCoroutine(FireingCo());
                             MP = MP - 3;
@@ -124,6 +127,7 @@ public class Magic : MonoBehaviour
                             BackFireBall.transform.position = BackPlayerPos;
                             BackFireing = true;
                             Fireing = false;
+                            fireParticleBack.Play();
                             NextFireBall = Time.time + 2;
                             StartCoroutine(BackFireingCo());
                             MP = MP - 3;
