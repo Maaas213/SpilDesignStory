@@ -16,6 +16,7 @@ public class Magic : MonoBehaviour
     public Image[] mana;
     public Sprite fullMana;
     public Sprite emptyMana;
+    public ParticleSystem glow;
 
     private SpriteRenderer SR;
     private SpriteRenderer BSR;
@@ -98,6 +99,7 @@ public class Magic : MonoBehaviour
 
             if (MP >= 3)
             {
+                glow.loop = true;
                 if (Time.time > NextFireBall)
                 {
                     if (TurnRight == true)
@@ -110,6 +112,7 @@ public class Magic : MonoBehaviour
                             NextFireBall = Time.time + 2;
                             StartCoroutine(FireingCo());
                             MP = MP - 3;
+                            glow.loop = false;
                             FindObjectOfType<AudioManager>().Play("Fireball");
                         }
                     }
@@ -124,6 +127,7 @@ public class Magic : MonoBehaviour
                             NextFireBall = Time.time + 2;
                             StartCoroutine(BackFireingCo());
                             MP = MP - 3;
+                            glow.loop = false;
                             FindObjectOfType<AudioManager>().Play("Fireball");
                         }
 
@@ -181,6 +185,7 @@ public class Magic : MonoBehaviour
                     MP = MP + 1;
                     Destroy(other.gameObject);
                     FindObjectOfType<AudioManager>().Play("Mana");
+                    glow.Play();
                     StartCoroutine(NoManaCo());
                     NoMana = true;
                 }
