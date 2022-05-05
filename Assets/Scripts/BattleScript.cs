@@ -183,7 +183,7 @@ public class BattleScript : MonoBehaviour
                 Vector3 Jump = new Vector3(0.0f, 1, 0.0f);
                 if (OnGround == true)
                 {
-                    if (Input.GetKeyDown("w"))
+                    if (Input.GetKeyDown("w") ||(Input.GetKeyDown(KeyCode.Space)))
                     {
 
                         //transform.Translate(Jump * JumpForce);
@@ -238,7 +238,7 @@ public class BattleScript : MonoBehaviour
                 {
                     if (TurnRight == true)
                     {
-                        if (Input.GetKeyDown(KeyCode.Space))
+                        if (Input.GetKeyDown("i"))
                         {
                             MSR.enabled = true;
                             MBC.enabled = true;
@@ -253,7 +253,7 @@ public class BattleScript : MonoBehaviour
                     }
                     if (TurnLeft == true)
                     {
-                        if (Input.GetKeyDown(KeyCode.Space))
+                        if (Input.GetKeyDown("i"))
                         {
                             BMSR.enabled = true;
                             BMBC.enabled = true;
@@ -287,7 +287,7 @@ public class BattleScript : MonoBehaviour
                 {
                     if (TurnRight == true)
                     {
-                        if (Input.GetKeyDown("e"))
+                        if (Input.GetKeyDown("o"))
                         {
                             TASR.enabled = true;
                             TACC.enabled = true;
@@ -303,7 +303,7 @@ public class BattleScript : MonoBehaviour
 
                     if (TurnLeft == true)
                     {
-                        if (Input.GetKeyDown("e"))
+                        if (Input.GetKeyDown("o"))
                         {
                             BTASR.enabled = true;
                             BTACC.enabled = true;

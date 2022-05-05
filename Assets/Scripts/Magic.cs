@@ -102,7 +102,7 @@ public class Magic : MonoBehaviour
                 {
                     if (TurnRight == true)
                     {
-                        if (Input.GetKeyDown("f"))
+                        if (Input.GetKeyDown("p"))
                         {
                             FireBall.transform.position = PlayerPos;
                             Fireing = true;
@@ -116,7 +116,7 @@ public class Magic : MonoBehaviour
 
                     if (TurnLeft == true)
                     {
-                        if (Input.GetKeyDown("f"))
+                        if (Input.GetKeyDown("p"))
                         {
                             BackFireBall.transform.position = BackPlayerPos;
                             BackFireing = true;
