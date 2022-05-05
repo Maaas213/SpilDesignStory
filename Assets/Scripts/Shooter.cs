@@ -21,6 +21,7 @@ public class Shooter : MonoBehaviour
     public Animator cloudAnim;
 
     public ParticleSystem bigGlitchy;
+    public ParticleSystem deathParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -58,9 +59,19 @@ public class Shooter : MonoBehaviour
 
         if(HP < 1)
         {
-            Destroy(gameObject);
+            StartCoroutine(Death());
         }
     }
+
+    IEnumerator Death()
+    {
+        deathParticles.Play();
+        bigGlitchy.Stop();
+        NextShot = Time.time + 10;
+        yield return new WaitForSeconds(2.5f);
+        Destroy(gameObject);
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Melee"))
