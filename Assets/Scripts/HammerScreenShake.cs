@@ -20,8 +20,12 @@ public class HammerScreenShake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      OriPos = new Vector3(Camera.transform.position.x, Camera.transform.position.y, Camera.transform.position.z);
+        
+        
+            OriPos = new Vector3(Camera.transform.position.x, Camera.transform.position.y, Camera.transform.position.z);
+        
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Vector3 Shake1 = new Vector3(0.5f, 0.5f, 0.0f);

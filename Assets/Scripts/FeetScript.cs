@@ -19,8 +19,11 @@ public class FeetScript : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        BS.OnGround = true;
+        if (!other.gameObject.CompareTag("Destrucable"))
+            {
+            BS.OnGround = true;
+        }
     }
 }
