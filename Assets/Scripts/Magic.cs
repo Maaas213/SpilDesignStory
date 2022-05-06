@@ -166,6 +166,8 @@ public class Magic : MonoBehaviour
             Fireing = false;
             SR.enabled = false;
             CC.enabled = false;
+            yield return new WaitForSeconds(1f);
+            fireParticleFront.Stop();
         }
 
         IEnumerator BackFireingCo()
@@ -174,6 +176,8 @@ public class Magic : MonoBehaviour
             BackFireing = false;
             BSR.enabled = false;
             BCC.enabled = false;
+            yield return new WaitForSeconds(1f);
+            fireParticleBack.Stop();
         }
 
     }
