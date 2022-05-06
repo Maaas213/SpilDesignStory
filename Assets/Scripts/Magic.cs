@@ -34,6 +34,7 @@ public class Magic : MonoBehaviour
     private bool TurnLeft;
     private bool NoMana;
 
+    public BattleScript BS;
 
     private Vector3 PlayerPos;
     private Vector3 BackPlayerPos;
@@ -98,47 +99,49 @@ public class Magic : MonoBehaviour
                 mana[i].enabled = false;
             }
 
-
-            if (MP >= 3)
+            if (BS.inDialog == false)
             {
-                glow.loop = true;
-                if (Time.time > NextFireBall)
+                if (MP >= 3)
                 {
-                    if (TurnRight == true)
+                    glow.loop = true;
+                    if (Time.time > NextFireBall)
                     {
-                        if (Input.GetKeyDown("p"))
+                        if (TurnRight == true)
                         {
-                            FireBall.transform.position = PlayerPos;
-                            Fireing = true;
-                            BackFireing = false;
-                            fireParticleFront.Play();
-                            NextFireBall = Time.time + 2;
-                            StartCoroutine(FireingCo());
-                            MP = MP - 3;
-                            glow.loop = false;
-                            FindObjectOfType<AudioManager>().Play("Fireball");
+                            if (Input.GetKeyDown("p"))
+                            {
+                                FireBall.transform.position = PlayerPos;
+                                Fireing = true;
+                                BackFireing = false;
+                                fireParticleFront.Play();
+                                NextFireBall = Time.time + 2;
+                                StartCoroutine(FireingCo());
+                                MP = MP - 3;
+                                glow.loop = false;
+                                FindObjectOfType<AudioManager>().Play("Fireball");
+                            }
                         }
-                    }
 
-                    if (TurnLeft == true)
-                    {
-                        if (Input.GetKeyDown("p"))
+                        if (TurnLeft == true)
                         {
-                            BackFireBall.transform.position = BackPlayerPos;
-                            BackFireing = true;
-                            Fireing = false;
-                            fireParticleBack.Play();
-                            NextFireBall = Time.time + 2;
-                            StartCoroutine(BackFireingCo());
-                            MP = MP - 3;
-                            glow.loop = false;
-                            FindObjectOfType<AudioManager>().Play("Fireball");
+                            if (Input.GetKeyDown("p"))
+                            {
+                                BackFireBall.transform.position = BackPlayerPos;
+                                BackFireing = true;
+                                Fireing = false;
+                                fireParticleBack.Play();
+                                NextFireBall = Time.time + 2;
+                                StartCoroutine(BackFireingCo());
+                                MP = MP - 3;
+                                glow.loop = false;
+                                FindObjectOfType<AudioManager>().Play("Fireball");
+                            }
+
                         }
 
                     }
 
                 }
-
             }
 
             Vector3 Fire = new Vector3(0.1f, 0.0f, 0.0f);
