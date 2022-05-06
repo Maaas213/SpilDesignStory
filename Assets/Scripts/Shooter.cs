@@ -22,6 +22,8 @@ public class Shooter : MonoBehaviour
 
     public ParticleSystem bigGlitchy;
     public ParticleSystem deathParticles;
+    public ParticleSystem shotImplode;
+    public ParticleSystem littleGlitchy;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +57,7 @@ public class Shooter : MonoBehaviour
             NextShot = Time.time + 2;
             SSR.enabled = true;
             SCC.enabled = true;
+            littleGlitchy.Play();
         }
 
         if(HP < 1)
@@ -67,7 +70,7 @@ public class Shooter : MonoBehaviour
     {
         deathParticles.Play();
         bigGlitchy.Stop();
-        NextShot = Time.time + 10;
+        NextShot = Time.time + 100;
         yield return new WaitForSeconds(2.5f);
         Destroy(gameObject);
     }

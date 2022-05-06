@@ -8,6 +8,7 @@ public class Shot : MonoBehaviour
     private CircleCollider2D CC;
 
     public ParticleSystem glitch;
+    public ParticleSystem shotImplode;
 
 
     // Start is called before the first frame update
@@ -29,8 +30,11 @@ public class Shot : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            shotImplode.Play();
+            glitch.Stop();
             SR.enabled = false;
             CC.enabled = false;
         }
     }
+
 }
