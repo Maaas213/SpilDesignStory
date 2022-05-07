@@ -48,9 +48,13 @@ public class FragileScript : MonoBehaviour
 
     private IEnumerator Fix()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2f);
+        anim.SetBool("isCrumbling", false);
+        yield return new WaitForSeconds(2f);
         BC.enabled = true;
         SR.enabled = true;
-        anim.SetBool("isCrumbling", false);
+        anim.SetBool("isRespawning", true);
+        yield return new WaitForSeconds(0.65f);
+        anim.SetBool("isRespawning", false);
     }
 }

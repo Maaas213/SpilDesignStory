@@ -86,6 +86,9 @@ public class BattleScript : MonoBehaviour
 
     public GameObject Canvas;
 
+    public GameObject enterSprite;
+    public GameObject enterSpriteGraham;
+
     private bool CanMove;
 
     //public bool soundPlaying;
@@ -543,11 +546,23 @@ public class BattleScript : MonoBehaviour
         {
             StartCoroutine(Canvas.GetComponent<FadeToBlack>().FadeBlackOutSquare());
         }
+
+        if (collision.gameObject.CompareTag("InteractTrigger"))
+        {
+            enterSprite.SetActive(true);
+            enterSpriteGraham.SetActive(true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         currentInteractive = null;
+
+        if (collision.gameObject.CompareTag("InteractTrigger"))
+        {
+            enterSprite.SetActive(false);
+            enterSpriteGraham.SetActive(false);
+        }
     }
 
     private void Interact()
@@ -577,6 +592,8 @@ public class BattleScript : MonoBehaviour
         inDialog = true;
         FindObjectOfType<AudioManager>().Stop("Theme");
         FindObjectOfType<AudioManager>().Stop("Ambience1");
+        enterSprite.SetActive(false);
+        enterSpriteGraham.SetActive(false);
     }
 
     public void ExitBlock()

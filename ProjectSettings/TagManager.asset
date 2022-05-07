@@ -26,6 +26,7 @@ TagManager:
   - Goal2
   - Boss
   - Fall
+  - InteractTrigger
   layers:
   - Default
   - TransparentFX
