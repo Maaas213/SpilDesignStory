@@ -8,6 +8,7 @@ public class Shooter : MonoBehaviour
 
     public float Speed;
     public float NextShot;
+    public bool StopMoving;
 
     private SpriteRenderer SSR;
     private CircleCollider2D SCC;
@@ -39,17 +40,23 @@ public class Shooter : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 LeftShot = new Vector3(-0.1f, 0.0f, 0.0f);
         Vector3 RightShot = new Vector3(0.1f, 0.0f, 0.0f);
         if (gameObject.CompareTag("Shooter Left"))
         {
-            Shot.transform.Translate(LeftShot * Speed);
+            if (StopMoving == false)
+            {
+                Shot.transform.Translate(LeftShot * Speed);
+            }
         }
         if (gameObject.CompareTag("Shooter Right"))
         {
-            Shot.transform.Translate(RightShot * Speed);
+            if (StopMoving == false)
+            {
+                Shot.transform.Translate(RightShot * Speed);
+            }
         }
         if (Time.time > NextShot)
         {
@@ -58,6 +65,7 @@ public class Shooter : MonoBehaviour
             SSR.enabled = true;
             SCC.enabled = true;
             littleGlitchy.Play();
+            StopMoving = false;
         }
 
         if(HP < 1)

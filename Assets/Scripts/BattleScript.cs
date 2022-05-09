@@ -159,9 +159,9 @@ public class BattleScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Speed = 0.06f;
+        
 
         Interact();
 
@@ -394,12 +394,7 @@ public class BattleScript : MonoBehaviour
         }
         
     }
-    private void FixedUpdate()
-    {
 
-
-
-    }
     private void OnCollisionEnter2D(UnityEngine.Collision2D other)
     {
         //OnGround = true;

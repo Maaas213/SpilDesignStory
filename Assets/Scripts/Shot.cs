@@ -7,6 +7,8 @@ public class Shot : MonoBehaviour
     private SpriteRenderer SR;
     private CircleCollider2D CC;
 
+    public Shooter S;
+
     public ParticleSystem glitch;
     public ParticleSystem shotImplode;
 
@@ -34,6 +36,7 @@ public class Shot : MonoBehaviour
             glitch.Stop();
             SR.enabled = false;
             CC.enabled = false;
+            S.StopMoving = true;
         }
     }
 
