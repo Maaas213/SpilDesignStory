@@ -158,8 +158,23 @@ public class BattleScript : MonoBehaviour
         //OriPos2 = new Vector3(BackFireball.transform.position.x, BackFireball.transform.position.y, BackFireball.transform.position.z);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
+    {
+        if(!inDialog)
+        {
+            if(CanMove)
+            {
+                float moveHorizontal = Input.GetAxis("Horizontal");
+
+                Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
+
+                transform.Translate(movement * Speed);
+            }
+        }
+    }
+
+
+    void Update()
     {
         
 
@@ -171,7 +186,7 @@ public class BattleScript : MonoBehaviour
             {
                 float moveHorizontal = Input.GetAxis("Horizontal");
 
-                Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
+                //Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
 
                 if ((Input.GetKey("a") || Input.GetKey("d")) && OnGround == true)
                 {
@@ -179,7 +194,7 @@ public class BattleScript : MonoBehaviour
                 }
 
                 //RB.AddForce(movement * Speed, ForceMode2D.Impulse);
-                transform.Translate(movement * Speed);
+                //transform.Translate(movement * Speed);
 
                 anim.SetFloat("Speed", Mathf.Abs(moveHorizontal));
 
