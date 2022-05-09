@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 368ec166e8a3d4d96803e412a47e694c
+guid: a3f713d9fa1f6488c93729b0c0f1cb3b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2672439822179857991
-    second: Sprite Sheet - Graham Idle_0
+      213: -40673157120624156
+    second: Sterling idle_0
   - first:
-      213: 5548446071123824735
-    second: Sprite Sheet - Graham Idle_1
+      213: -5589707521108088892
+    second: Sterling idle_1
   - first:
-      213: 8861058417873700064
-    second: Sprite Sheet - Graham Idle_2
+      213: 4112211194837409945
+    second: Sterling idle_2
   - first:
-      213: 6921877223134444536
-    second: Sprite Sheet - Graham Idle_3
+      213: -1307854217094479649
+    second: Sterling idle_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,13 +99,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite Sheet - Graham Idle_0
+      name: Sterling idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 37
-        height: 73
+        width: 51
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,20 +113,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b98c53142699ead0800000000000000
-      internalID: -2672439822179857991
+      spriteID: 4e97ee5aaff7f6ff0800000000000000
+      internalID: -40673157120624156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Sheet - Graham Idle_1
+      name: Sterling idle_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 56
         y: 0
-        width: 37
-        height: 73
+        width: 51
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f505fb40e4a000d40800000000000000
-      internalID: 5548446071123824735
+      spriteID: 4c7e50600ae5d62b0800000000000000
+      internalID: -5589707521108088892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Sheet - Graham Idle_2
+      name: Sterling idle_2
       rect:
         serializedVersion: 2
-        x: 78
+        x: 112
         y: 0
-        width: 37
-        height: 73
+        width: 51
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e4c853eeadc8fa70800000000000000
-      internalID: 8861058417873700064
+      spriteID: 9902ba55b42811930800000000000000
+      internalID: 4112211194837409945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Sheet - Graham Idle_3
+      name: Sterling idle_3
       rect:
         serializedVersion: 2
-        x: 116
+        x: 168
         y: 0
-        width: 37
-        height: 73
+        width: 51
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fbbbc729a27f0060800000000000000
-      internalID: 6921877223134444536
+      spriteID: fd04614d48199dde0800000000000000
+      internalID: -1307854217094479649
       vertices: []
       indices: 
       edges: []

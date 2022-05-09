@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 368ec166e8a3d4d96803e412a47e694c
+guid: d22e5b1e42f084bf1ba5ffad57fb3a29
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2672439822179857991
-    second: Sprite Sheet - Graham Idle_0
+      213: -6786770452371925906
+    second: Door open_0
   - first:
-      213: 5548446071123824735
-    second: Sprite Sheet - Graham Idle_1
+      213: -3683045994977511871
+    second: Door open_1
   - first:
-      213: 8861058417873700064
-    second: Sprite Sheet - Graham Idle_2
+      213: 4257809479573922660
+    second: Door open_2
   - first:
-      213: 6921877223134444536
-    second: Sprite Sheet - Graham Idle_3
+      213: 8728084185238595084
+    second: Door open_3
+  - first:
+      213: 3832379523255330844
+    second: Door open_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -57,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,85 +102,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite Sheet - Graham Idle_0
+      name: Door open_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 188
+        width: 68
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e64114e3b3c80d1a0800000000000000
+      internalID: -6786770452371925906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door open_1
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 188
+        width: 82
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 146b0f16e2133ecc0800000000000000
+      internalID: -3683045994977511871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door open_2
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 188
+        width: 84
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4636b4fa927c61b30800000000000000
+      internalID: 4257809479573922660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door open_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 37
-        height: 73
+        y: 25
+        width: 84
+        height: 152
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b98c53142699ead0800000000000000
-      internalID: -2672439822179857991
+      spriteID: c06e9d6b252602970800000000000000
+      internalID: 8728084185238595084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Sheet - Graham Idle_1
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 37
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f505fb40e4a000d40800000000000000
-      internalID: 5548446071123824735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Sheet - Graham Idle_2
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 0
-        width: 37
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e4c853eeadc8fa70800000000000000
-      internalID: 8861058417873700064
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Sheet - Graham Idle_3
+      name: Door open_4
       rect:
         serializedVersion: 2
         x: 116
-        y: 0
-        width: 37
-        height: 73
+        y: 26
+        width: 85
+        height: 151
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fbbbc729a27f0060800000000000000
-      internalID: 6921877223134444536
+      spriteID: c186d102fd85f2530800000000000000
+      internalID: 3832379523255330844
       vertices: []
       indices: 
       edges: []
