@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 368ec166e8a3d4d96803e412a47e694c
+guid: 9a0d4a550b1e44fcf86b61db15ebf3c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2672439822179857991
-    second: Sprite Sheet - Graham Idle_0
+      213: -2510147214669384405
+    second: Sprite Sheet - Graham Idle2_0
   - first:
-      213: 5548446071123824735
-    second: Sprite Sheet - Graham Idle_1
+      213: -6234754492750810444
+    second: Sprite Sheet - Graham Idle2_1
   - first:
-      213: 8861058417873700064
-    second: Sprite Sheet - Graham Idle_2
+      213: 7603047418429889201
+    second: Sprite Sheet - Graham Idle2_2
   - first:
-      213: 6921877223134444536
-    second: Sprite Sheet - Graham Idle_3
+      213: -5032990317909041075
+    second: Sprite Sheet - Graham Idle2_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,7 +99,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite Sheet - Graham Idle_0
+      name: Sprite Sheet - Graham Idle2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -113,14 +113,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b98c53142699ead0800000000000000
-      internalID: -2672439822179857991
+      spriteID: b25f1b7586a2a2dd0800000000000000
+      internalID: -2510147214669384405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Sheet - Graham Idle_1
+      name: Sprite Sheet - Graham Idle2_1
       rect:
         serializedVersion: 2
         x: 40
@@ -134,14 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f505fb40e4a000d40800000000000000
-      internalID: 5548446071123824735
+      spriteID: 4b231dd62d3b979a0800000000000000
+      internalID: -6234754492750810444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Sheet - Graham Idle_2
+      name: Sprite Sheet - Graham Idle2_2
       rect:
         serializedVersion: 2
         x: 78
@@ -155,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e4c853eeadc8fa70800000000000000
-      internalID: 8861058417873700064
+      spriteID: 1bad6f92853738960800000000000000
+      internalID: 7603047418429889201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite Sheet - Graham Idle_3
+      name: Sprite Sheet - Graham Idle2_3
       rect:
         serializedVersion: 2
         x: 116
@@ -176,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fbbbc729a27f0060800000000000000
-      internalID: 6921877223134444536
+      spriteID: d402d07c8f9372ab0800000000000000
+      internalID: -5032990317909041075
       vertices: []
       indices: 
       edges: []
