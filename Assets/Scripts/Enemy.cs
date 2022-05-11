@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
 
     public MoveBallBackAndForth Movement;
 
+    bool isDead = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +31,11 @@ public class Enemy : MonoBehaviour
 
         enemyAnim = GetComponent<Animator>();
 
+        StartCoroutine(Moaning());
+
     }
+
+   
 
     // Update is called once per frame
     void Update()
@@ -52,6 +58,7 @@ public class Enemy : MonoBehaviour
             Movement.enabled = false;
             enemyAnim.SetBool("takingDamage", false);
             enemyAnim.SetBool("isDead", true);
+            isDead = true;
             StartCoroutine(Death());
             CC.enabled = false;
         }
@@ -113,6 +120,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Death()
     {
         BloodSpray();
+        FindObjectOfType<AudioManager>().Play("EnemyDeath");
         yield return new WaitForSeconds(2.8f);
         Destroy(gameObject);
     }
@@ -120,6 +128,17 @@ public class Enemy : MonoBehaviour
     void BloodSpray()
     {
         blood.Play();
+    }
+
+    IEnumerator Moaning()
+    {
+        while (isDead == false)
+        {
+            float delay = Random.Range(10, 30);
+            yield return new WaitForSeconds(delay);
+            FindObjectOfType<AudioManager>().Play("Moaning");
+        }
+            
     }
 
 }
