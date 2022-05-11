@@ -66,12 +66,24 @@ public class Shooter : MonoBehaviour
             SCC.enabled = true;
             littleGlitchy.Play();
             StopMoving = false;
+            StartCoroutine(ImplosionShot());
         }
 
         if(HP < 1)
         {
             StartCoroutine(Death());
         }
+    }
+
+    IEnumerator ImplosionShot()
+    {
+
+        yield return new WaitForSeconds(1.5f);
+        StopMoving = true;
+        shotImplode.Play();
+        littleGlitchy.Stop();
+        SSR.enabled = false;
+        SCC.enabled = false;
     }
 
     IEnumerator Death()
