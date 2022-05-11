@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
     public GameObject Canvas;
     public GameObject Menu;
 
+    public ParticleSystem[] mainMenuGlow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,4 +43,6 @@ public class MainMenu : MonoBehaviour
         Debug.Log("QUIT...");
         Application.Quit();
     }
+
+    
 }
