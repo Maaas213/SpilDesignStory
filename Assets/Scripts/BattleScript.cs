@@ -438,6 +438,8 @@ public class BattleScript : MonoBehaviour
 
                 anim.SetBool("takingDamage", true);
 
+                FindObjectOfType<AudioManager>().Play("Damage");
+
                 StartCoroutine(InvulCo());
                 
             }
@@ -447,6 +449,8 @@ public class BattleScript : MonoBehaviour
                 Invul = true;
 
                 anim.SetBool("takingDamage", true);
+
+                FindObjectOfType<AudioManager>().Play("SpikeStab");
 
                 StartCoroutine(InvulCo());
             }
@@ -600,17 +604,18 @@ public class BattleScript : MonoBehaviour
     {
         flowchart.ExecuteBlock(currentInteractive.blockName);
         inDialog = true;
-        FindObjectOfType<AudioManager>().Stop("Theme");
-        FindObjectOfType<AudioManager>().Stop("Ambience1");
+        //FindObjectOfType<AudioManager>().Pause("Theme");
+        //FindObjectOfType<AudioManager>().Pause("Ambience1");
         enterSprite.SetActive(false);
         enterSpriteGraham.SetActive(false);
     }
 
+
     public void ExitBlock()
     {
         inDialog = false;
-        FindObjectOfType<AudioManager>().Play("Theme");
-        FindObjectOfType<AudioManager>().Play("Ambience1");
+        //FindObjectOfType<AudioManager>().UnPause("Theme");
+        //FindObjectOfType<AudioManager>().UnPause("Ambience1");
     }
 
     void CreateDust()
@@ -630,4 +635,6 @@ public class BattleScript : MonoBehaviour
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Demo Level");
     }
+
+
 }

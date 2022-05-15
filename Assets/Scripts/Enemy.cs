@@ -20,6 +20,10 @@ public class Enemy : MonoBehaviour
 
     bool isDead = false;
 
+  
+
+   
+
 
     // Start is called before the first frame update
     void Start()
@@ -90,6 +94,11 @@ public class Enemy : MonoBehaviour
         {
             HP = HP - 3;
             //Destroy(gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            FindObjectOfType<AudioManager>().Play("EnemyAttack");
         }
 
 

@@ -19,6 +19,8 @@ public class Shooter : MonoBehaviour
 
     public float HP;
 
+    bool isDead = false;
+
     public Animator cloudAnim;
 
     public ParticleSystem bigGlitchy;
@@ -37,7 +39,14 @@ public class Shooter : MonoBehaviour
         OriPos = new Vector3(Shot.transform.position.x, Shot.transform.position.y, Shot.transform.position.z);
 
         bigGlitchy.Play();
+
+      
+       
+       StartCoroutine(Glitchy());
+       
     }
+
+   
 
     // Update is called once per frame
     void FixedUpdate()
@@ -88,6 +97,8 @@ public class Shooter : MonoBehaviour
 
     IEnumerator Death()
     {
+        isDead = true;
+        FindObjectOfType<AudioManager>().Play("ShooterDeath");
         deathParticles.Play();
         bigGlitchy.Stop();
         NextShot = Time.time + 100;
@@ -124,6 +135,17 @@ public class Shooter : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         cloudAnim.SetBool("takingDamage", false);
+    }
+
+    IEnumerator Glitchy()
+    {
+        while (isDead == false)
+        {
+            float delay = Random.Range(10, 30);
+            yield return new WaitForSeconds(delay);
+            FindObjectOfType<AudioManager>().Play("Glitch");
+        }
+
     }
 
 }
