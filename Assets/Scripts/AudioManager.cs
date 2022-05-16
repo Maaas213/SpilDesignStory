@@ -57,8 +57,8 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        FindObjectOfType<AudioManager>().Play("Theme");
-        FindObjectOfType<AudioManager>().Play("Ambience1");
+        //FindObjectOfType<AudioManager>().Play("Theme");
+        //FindObjectOfType<AudioManager>().Play("Ambience1");
     }
 
     public void Play(string name)
@@ -86,6 +86,32 @@ public class AudioManager : MonoBehaviour
         }
 
         s.source.Stop();
+    }
+
+    public void Pause(String name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound" + name + "not found!");
+            return;
+        }
+
+        s.source.Pause();
+    }
+
+    public void UnPause(String name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound" + name + "not found!");
+            return;
+        }
+
+        s.source.UnPause();
     }
 
     private static bool CanPlaySound(Sound s)
