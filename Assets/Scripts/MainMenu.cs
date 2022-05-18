@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        FindObjectOfType<AudioManager>().Play("MenuTheme");
     }
 
     // Update is called once per frame
@@ -32,9 +32,11 @@ public class MainMenu : MonoBehaviour
     IEnumerator DoorOpen()
     {
         doorAnim.SetBool("isOpening", true);
+        FindObjectOfType<AudioManager>().Play("Door");
         yield return new WaitForSeconds(1.5f);
         StartCoroutine(Canvas.GetComponent<FadeToBlack>().FadeBlackOutSquare());
         yield return new WaitForSeconds(2f);
+        FindObjectOfType<AudioManager>().Stop("MenuTheme");
         SceneManager.LoadScene("Demo Level");
     }
 

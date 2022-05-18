@@ -19,7 +19,8 @@ public class Shooter : MonoBehaviour
 
     public float HP;
 
-    bool isDead = false;
+    public bool isDead = false;
+    bool firing;
 
     public Animator cloudAnim;
 
@@ -39,14 +40,15 @@ public class Shooter : MonoBehaviour
         OriPos = new Vector3(Shot.transform.position.x, Shot.transform.position.y, Shot.transform.position.z);
 
         bigGlitchy.Play();
-
-      
-       
-       StartCoroutine(Glitchy());
        
     }
 
    
+
+   void Update() 
+    { 
+    
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -93,17 +95,18 @@ public class Shooter : MonoBehaviour
         littleGlitchy.Stop();
         SSR.enabled = false;
         SCC.enabled = false;
+        firing = true;
     }
 
     IEnumerator Death()
     {
-        isDead = true;
         FindObjectOfType<AudioManager>().Play("ShooterDeath");
         deathParticles.Play();
         bigGlitchy.Stop();
         NextShot = Time.time + 100;
         yield return new WaitForSeconds(2.5f);
         Destroy(gameObject);
+        isDead = true;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -112,6 +115,7 @@ public class Shooter : MonoBehaviour
         {
             HP = HP - 1;
             cloudAnim.SetBool("takingDamage", true);
+            FindObjectOfType<AudioManager>().Play("Glitch");
             StartCoroutine(NoMoreDmg());
             
         }
@@ -123,11 +127,13 @@ public class Shooter : MonoBehaviour
         {
             HP = HP - 3;
             cloudAnim.SetBool("takingDamage", true);
+            FindObjectOfType<AudioManager>().Play("Glitch");
         }
         if (other.gameObject.CompareTag("FireBall"))
         {
             HP = HP - 3;
             cloudAnim.SetBool("takingDamage", true);
+            FindObjectOfType<AudioManager>().Play("Glitch");
         }
     }
 
@@ -137,15 +143,5 @@ public class Shooter : MonoBehaviour
         cloudAnim.SetBool("takingDamage", false);
     }
 
-    IEnumerator Glitchy()
-    {
-        while (isDead == false)
-        {
-            float delay = Random.Range(10, 30);
-            yield return new WaitForSeconds(delay);
-            FindObjectOfType<AudioManager>().Play("Glitch");
-        }
-
-    }
 
 }

@@ -92,6 +92,8 @@ public class BattleScript : MonoBehaviour
 
     private bool CanMove;
 
+
+
     //public bool soundPlaying;
 
     void Start()
@@ -441,6 +443,8 @@ public class BattleScript : MonoBehaviour
 
                 FindObjectOfType<AudioManager>().Play("Damage");
 
+                FindObjectOfType<AudioManager>().Play("EnemyAttack");
+
                 StartCoroutine(InvulCo());
                 
             }
@@ -559,6 +563,8 @@ public class BattleScript : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Fall"))
         {
+            FindObjectOfType<AudioManager>().Play("Fall");
+            FindObjectOfType<AudioManager>().Play("Fail");
             StartCoroutine(Canvas.GetComponent<FadeToBlack>().FadeBlackOutSquare());
         }
 
@@ -628,6 +634,9 @@ public class BattleScript : MonoBehaviour
 
     IEnumerator Death()
     {
+        FindObjectOfType<AudioManager>().Play("Fail");
+        FindObjectOfType<AudioManager>().Play("Push");
+        FindObjectOfType<AudioManager>().Play("EnemyDamage");
         CanMove = false;
         CC.enabled = false;
         FindObjectOfType<AudioManager>().Stop("Steps2");

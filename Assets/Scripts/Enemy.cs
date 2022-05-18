@@ -18,11 +18,10 @@ public class Enemy : MonoBehaviour
 
     public MoveBallBackAndForth Movement;
 
-    bool isDead = false;
+    public bool isDead = false;
 
-  
+    
 
-   
 
 
     // Start is called before the first frame update
@@ -34,9 +33,6 @@ public class Enemy : MonoBehaviour
         CC = GetComponent<CapsuleCollider2D>();
 
         enemyAnim = GetComponent<Animator>();
-
-        StartCoroutine(Moaning());
-
     }
 
    
@@ -67,6 +63,33 @@ public class Enemy : MonoBehaviour
             CC.enabled = false;
         }
 
+        /*if (isDead == false && inDialog == false)
+        {
+            if(moaningActive == false)
+            {
+                StartCoroutine(_coroutine);
+            }
+
+            else
+            {
+                doneNow();
+            }
+            
+        }
+
+
+        /*if (inDialog)
+        {
+            StopCoroutine(Moaning());
+            moaningActive = false;
+        }*/
+
+        /*if (!inDialog && moaningActive == false && isDead == false)
+        {
+            StartCoroutine(Moaning());
+            //moaningActive = true;
+        }*/
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -77,6 +100,9 @@ public class Enemy : MonoBehaviour
             Movement.enabled = false;
             HP = HP - 1;
             enemyAnim.SetBool("takingDamage", true);
+            FindObjectOfType<AudioManager>().Play("EnemyDamage");
+            FindObjectOfType<AudioManager>().Play("EnemyDamage2");
+            FindObjectOfType<AudioManager>().Play("Moaning");
             StartCoroutine(BloodAct()); 
         }
         if (other.gameObject.CompareTag("Lightning"))
@@ -98,7 +124,7 @@ public class Enemy : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            FindObjectOfType<AudioManager>().Play("EnemyAttack");
+            FindObjectOfType<AudioManager>().Play("Moaning");
         }
 
 
@@ -139,15 +165,5 @@ public class Enemy : MonoBehaviour
         blood.Play();
     }
 
-    IEnumerator Moaning()
-    {
-        while (isDead == false)
-        {
-            float delay = Random.Range(10, 30);
-            yield return new WaitForSeconds(delay);
-            FindObjectOfType<AudioManager>().Play("Moaning");
-        }
-            
-    }
-
 }
+

@@ -1,0 +1,214 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2973787607686048009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2973787607686048007}
+  - component: {fileID: 2973787607686048006}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2973787607686048007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2973787607686048009}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2973787607686048006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2973787607686048009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97be8705ae6e5ab448a9ef9de052aa8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Theme
+    clip: {fileID: 8300000, guid: 79ebe61afa8eeda409ab5b14a588e4db, type: 3}
+    volume: 0.739
+    pitch: 1.08
+    loop: 1
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Ambience1
+    clip: {fileID: 8300000, guid: 6d93f125cf9c44849af6d12ea1742c7a, type: 3}
+    volume: 1
+    pitch: 1.11
+    loop: 1
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 942a720d68e1f6d45bea4dd23d6785de, type: 3}
+    volume: 0.18
+    pitch: 1.27
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Sword
+    clip: {fileID: 8300000, guid: 589947743f0128b41bb43494f6bbc62b, type: 3}
+    volume: 0.502
+    pitch: 1.19
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Steps1
+    clip: {fileID: 8300000, guid: cad8e14f14176f741a0b0876c7466f3d, type: 3}
+    volume: 0.393
+    pitch: 1.4
+    loop: 1
+    hasCooldown: 1
+    source: {fileID: 0}
+  - name: Steps2
+    clip: {fileID: 8300000, guid: 8adcf6f5b7774094abeed4d6460639f1, type: 3}
+    volume: 0.393
+    pitch: 1.4
+    loop: 1
+    hasCooldown: 1
+    source: {fileID: 0}
+  - name: Ax
+    clip: {fileID: 8300000, guid: 360e8ffc5d7fc094e822f1d80694d70c, type: 3}
+    volume: 1
+    pitch: 1.4
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Mana
+    clip: {fileID: 8300000, guid: 2d6a6e881bd4cb4419723e6900059d52, type: 3}
+    volume: 1
+    pitch: 1.4
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Fireball
+    clip: {fileID: 8300000, guid: 57a6e9dbb46be944b9d04ad00d9d8362, type: 3}
+    volume: 1
+    pitch: 1.4
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Crack
+    clip: {fileID: 8300000, guid: 4c60b0cedf26c9d4890dab45f391fd57, type: 3}
+    volume: 1
+    pitch: 1.4
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: EnemyDeath
+    clip: {fileID: 8300000, guid: 7314e268cd2bfc24b88e80a785af7e97, type: 3}
+    volume: 0.173
+    pitch: 1.4
+    loop: 0
+    hasCooldown: 1
+    source: {fileID: 0}
+  - name: Push
+    clip: {fileID: 8300000, guid: 36fdf65999161c74eaa429cf23ec0901, type: 3}
+    volume: 0.173
+    pitch: 1.24
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Moaning
+    clip: {fileID: 8300000, guid: 25e5921bf8b256a4d92ad8ead391eb03, type: 3}
+    volume: 0.356
+    pitch: 1.4
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: EnemyAttack
+    clip: {fileID: 8300000, guid: 73ac717dcaea36645b64283e1d7cb381, type: 3}
+    volume: 0.173
+    pitch: 1.4
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Glitch
+    clip: {fileID: 8300000, guid: 0ac7a11e1288aff49b2fcb8399eaf736, type: 3}
+    volume: 0.532
+    pitch: 2.14
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: ShooterDeath
+    clip: {fileID: 8300000, guid: 20a2f2420caaf9549b2be2e1ea76fd2b, type: 3}
+    volume: 0.415
+    pitch: 1.55
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: SpikeStab
+    clip: {fileID: 8300000, guid: 77e59f41727cdfc4588bf9463c33fbc0, type: 3}
+    volume: 0.297
+    pitch: 2.17
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Damage
+    clip: {fileID: 8300000, guid: 9f0f507d1660ffb42ba3f532d5ebde84, type: 3}
+    volume: 0.554
+    pitch: 1.1
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Fail
+    clip: {fileID: 8300000, guid: 8ef764e6d02432243a9cd3986e89bae0, type: 3}
+    volume: 1
+    pitch: 1.55
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: EnemyDamage
+    clip: {fileID: 8300000, guid: ed03bd821f58c8b4bbd5fcf38b454852, type: 3}
+    volume: 0.876
+    pitch: 1.55
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: MenuTheme
+    clip: {fileID: 8300000, guid: 956a1ab56e4095d4688ef189cc1184e1, type: 3}
+    volume: 0.883
+    pitch: 1
+    loop: 1
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Door
+    clip: {fileID: 8300000, guid: 06a03540c1c167d4dbca600ebd890c56, type: 3}
+    volume: 0.795
+    pitch: 1.55
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: Fall
+    clip: {fileID: 8300000, guid: 7b03384d67151b543aaf286b1705a6fb, type: 3}
+    volume: 0.963
+    pitch: 2.17
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+  - name: EnemyDamage2
+    clip: {fileID: 8300000, guid: 320714afc16cc0d458cfa08fc995ce4e, type: 3}
+    volume: 0.59
+    pitch: 1
+    loop: 0
+    hasCooldown: 0
+    source: {fileID: 0}

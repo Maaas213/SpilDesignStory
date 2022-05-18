@@ -8,11 +8,13 @@ public class WalkingSound : MonoBehaviour
 
     public bool soundPlaying = false;
     public bool OnGround;
+    public BattleScript script;
+    bool inDialog;
 
 
     void Start()
     {
-
+        inDialog = script.inDialog;
     }
 
     // Update is called once per frame
@@ -21,39 +23,48 @@ public class WalkingSound : MonoBehaviour
         var moveLeft = Input.GetKey("a");
         var moveRight = Input.GetKey("d");
         
-
-
-        if (moveLeft)
+        if (!inDialog)
         {
-
-            if (OnGround == true && !soundPlaying)
+            if (moveLeft)
             {
-                FindObjectOfType<AudioManager>().Play("Steps2");
+
+                if (OnGround == true && !soundPlaying)
+                {
+                    FindObjectOfType<AudioManager>().Play("Steps2");
+                }
+
             }
 
-        }
 
-
-        else
-        {
-            FindObjectOfType<AudioManager>().Stop("Steps2");
-        }
-
-        if (moveRight)
-        {
-            if (OnGround == true && !soundPlaying)
+            else
             {
-                
-                FindObjectOfType<AudioManager>().Play("Steps1");
+                FindObjectOfType<AudioManager>().Stop("Steps2");
             }
 
+            if (moveRight)
+            {
+                if (OnGround == true && !soundPlaying)
+                {
+
+                    FindObjectOfType<AudioManager>().Play("Steps1");
+                }
+
+            }
+
+            else
+            {
+                FindObjectOfType<AudioManager>().Stop("Steps1");
+            }
+
+
         }
 
-        else
+        if (inDialog == true)
         {
             FindObjectOfType<AudioManager>().Stop("Steps1");
+            FindObjectOfType<AudioManager>().Stop("Steps2");
         }
-
-
     }
+
+        
 }
