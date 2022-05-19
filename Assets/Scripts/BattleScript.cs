@@ -89,6 +89,7 @@ public class BattleScript : MonoBehaviour
     public GameObject enterSprite;
     public GameObject enterSpriteGraham;
     public GameObject enterSpriteSign;
+    public GameObject enterSpriteEndDoor;
 
     private bool CanMove;
 
@@ -573,6 +574,7 @@ public class BattleScript : MonoBehaviour
             enterSprite.SetActive(true);
             enterSpriteGraham.SetActive(true);
             enterSpriteSign.SetActive(true);
+            enterSpriteEndDoor.SetActive(true);
         }
     }
 
@@ -585,6 +587,7 @@ public class BattleScript : MonoBehaviour
             enterSprite.SetActive(false);
             enterSpriteGraham.SetActive(false);
             enterSpriteSign.SetActive(false);
+            enterSpriteEndDoor.SetActive(false);
         }
     }
 
