@@ -40,21 +40,25 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time > NextAttack)
+        if (HP > 1)
         {
-            SR.enabled = true;
-            BC.enabled = true;
-            NextAttack = Time.time + Random.Range(2, 6);
-            Movement.enabled = false;
+            if (Time.time > NextAttack)
+            {
+                SR.enabled = true;
+                BC.enabled = true;
+                NextAttack = Time.time + Random.Range(2, 6);
+                Movement.enabled = false;
 
-            enemyAnim.SetBool("isAttacking", true);
+                enemyAnim.SetBool("isAttacking", true);
 
-            StartCoroutine(AttackCo());
-
-
+                StartCoroutine(AttackCo());
+            }
         }
+
+
         if (HP < 1)
         {
+            Destroy(Attack.gameObject);
             Movement.enabled = false;
             enemyAnim.SetBool("takingDamage", false);
             enemyAnim.SetBool("isDead", true);
