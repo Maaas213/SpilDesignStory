@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FadeToBlack : MonoBehaviour
 {
     public GameObject blackOutSquare;
+    public Button returnButton;
 
     // Update is called once per frame
     void Update()
@@ -27,6 +29,7 @@ public class FadeToBlack : MonoBehaviour
                 objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
                 blackOutSquare.GetComponent<Image>().color = objectColor;
                 yield return null;
+                returnButton.gameObject.SetActive(true);
             }
         } else
         {
@@ -39,5 +42,10 @@ public class FadeToBlack : MonoBehaviour
                 yield return null;
             }
         }
+    }
+
+    public void MainMenuReturn()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
