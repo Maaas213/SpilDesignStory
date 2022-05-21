@@ -116,7 +116,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: EnemyDeath
     clip: {fileID: 8300000, guid: 7314e268cd2bfc24b88e80a785af7e97, type: 3}
-    volume: 0.173
+    volume: 0.663
     pitch: 1.4
     loop: 0
     hasCooldown: 1
@@ -130,21 +130,21 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Moaning
     clip: {fileID: 8300000, guid: 25e5921bf8b256a4d92ad8ead391eb03, type: 3}
-    volume: 0.356
+    volume: 0.627
     pitch: 1.4
     loop: 0
     hasCooldown: 0
     source: {fileID: 0}
   - name: EnemyAttack
     clip: {fileID: 8300000, guid: 73ac717dcaea36645b64283e1d7cb381, type: 3}
-    volume: 0.173
+    volume: 0.362
     pitch: 1.4
     loop: 0
     hasCooldown: 0
     source: {fileID: 0}
   - name: Glitch
     clip: {fileID: 8300000, guid: 0ac7a11e1288aff49b2fcb8399eaf736, type: 3}
-    volume: 0.532
+    volume: 0.677
     pitch: 2.14
     loop: 0
     hasCooldown: 0
@@ -158,14 +158,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: SpikeStab
     clip: {fileID: 8300000, guid: 77e59f41727cdfc4588bf9463c33fbc0, type: 3}
-    volume: 0.297
+    volume: 0.62
     pitch: 2.17
     loop: 0
     hasCooldown: 0
     source: {fileID: 0}
   - name: Damage
     clip: {fileID: 8300000, guid: 9f0f507d1660ffb42ba3f532d5ebde84, type: 3}
-    volume: 0.554
+    volume: 0.692
     pitch: 1.1
     loop: 0
     hasCooldown: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: EnemyDamage2
     clip: {fileID: 8300000, guid: 320714afc16cc0d458cfa08fc995ce4e, type: 3}
-    volume: 0.59
+    volume: 0.792
     pitch: 1
     loop: 0
     hasCooldown: 0
