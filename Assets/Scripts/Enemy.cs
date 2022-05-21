@@ -67,33 +67,6 @@ public class Enemy : MonoBehaviour
             CC.enabled = false;
         }
 
-        /*if (isDead == false && inDialog == false)
-        {
-            if(moaningActive == false)
-            {
-                StartCoroutine(_coroutine);
-            }
-
-            else
-            {
-                doneNow();
-            }
-            
-        }
-
-
-        /*if (inDialog)
-        {
-            StopCoroutine(Moaning());
-            moaningActive = false;
-        }*/
-
-        /*if (!inDialog && moaningActive == false && isDead == false)
-        {
-            StartCoroutine(Moaning());
-            //moaningActive = true;
-        }*/
-
     }
 
     private void OnCollisionEnter2D(Collision2D other)
