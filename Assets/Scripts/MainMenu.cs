@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<AudioManager>().Play("MenuTheme");
+        //FindObjectOfType<AudioManager>().Play("MenuTheme");
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         StartCoroutine(Canvas.GetComponent<FadeToBlack>().FadeBlackOutSquare());
         yield return new WaitForSeconds(2f);
-        FindObjectOfType<AudioManager>().Stop("MenuTheme");
+        //FindObjectOfType<AudioManager>().Stop("MenuTheme");
         SceneManager.LoadScene("Demo Level");
     }
 

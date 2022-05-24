@@ -29,7 +29,7 @@ public class FadeToBlack : MonoBehaviour
                 objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
                 blackOutSquare.GetComponent<Image>().color = objectColor;
                 yield return null;
-                returnButton.gameObject.SetActive(true);
+                //returnButton.gameObject.SetActive(true);
             }
         } else
         {
@@ -47,5 +47,10 @@ public class FadeToBlack : MonoBehaviour
     public void MainMenuReturn()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene("Demo Level");
     }
 }
