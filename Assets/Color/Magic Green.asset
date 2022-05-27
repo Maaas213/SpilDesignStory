@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Magic Green
   m_EditorClassIdentifier: 
   colorMode: 3
-  topLeft: {r: 0.69988644, g: 0.5338644, b: 0.8773585, a: 1}
-  topRight: {r: 0.72419006, g: 0.6047526, b: 0.8490566, a: 1}
-  bottomLeft: {r: 0.3646256, g: 0.18689926, b: 0.5283019, a: 1}
-  bottomRight: {r: 0.3647059, g: 0.1882353, b: 0.5294118, a: 1}
+  topLeft: {r: 0.46530348, g: 0.115877524, b: 0.7924528, a: 1}
+  topRight: {r: 0.5196619, g: 0.27367392, b: 0.7735849, a: 1}
+  bottomLeft: {r: 0.61687803, g: 0.48940903, b: 0.735849, a: 1}
+  bottomRight: {r: 0.4951572, g: 0.37878248, b: 0.6037736, a: 1}

@@ -40,6 +40,7 @@ public class FadeToBlack : MonoBehaviour
                 objectColor = new Color(objectColor.r, objectColor.g, objectColor.b, fadeAmount);
                 blackOutSquare.GetComponent<Image>().color = objectColor;
                 yield return null;
+
             }
         }
     }
